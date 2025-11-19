@@ -1,0 +1,122 @@
+============================================================
+                Universidade do Minho
+============================================================
+
+Licenciatura em Engenharia Informática
+Mestrado Integrado em Engenharia Informática
+Inteligência Artificial, 3º Ano, 1º Semestre 2024/2025
+
+------------------------------------------------------------
+           Instrumento de Avaliação em Grupo
+------------------------------------------------------------
+
+Tema: Resolução de Problemas - Algoritmos de procura
+
+Objetivos:
+O objetivo deste trabalho é desenvolver algoritmos de procura que permitam otimizar a gestão de uma frota de táxis heterogénea, composta por veículos a combustão e elétricos, garantindo a eficiência operacional, a redução de custos energéticos e o cumprimento de critérios ambientais. Pretende-se equilibrar a alocação de veículos com diferentes características (autonomia, capacidade de passageiros, custos operacionais) e otimizar o tempo total de operação e a satisfação dos clientes.
+
+Enunciado:
+As empresas de táxis modernas enfrentam desafios crescentes na gestão das suas frotas, tanto pela necessidade de responder rapidamente a pedidos de transporte como pela transição para uma mobilidade mais sustentável. Com a introdução progressiva de veículos elétricos, as empresas precisam de gerir simultaneamente táxis a combustão tradicional e veículos elétricos, cada um com características distintas de autonomia, custos operacionais e requisitos de manutenção.
+
+A TaxiGreen, uma empresa de táxis urbanos, pretende otimizar a gestão da sua frota mista, garantindo que todos os pedidos de transporte sejam atendidos dentro de um período de tempo aceitável, respeitando as limitações específicas de cada tipo de veículo. Os veículos elétricos têm autonomia limitada e necessitam de recarga periódica em estações específicas, enquanto os veículos a combustão podem reabastecer mais rapidamente, mas têm custos operacionais superiores e maior impacto ambiental.
+
+Cada veículo da frota possui características específicas, nomeadamente o tipo de motorização, autonomia atual e máxima, a sua capacidade de passageiros, o custo operacional por quilómetro, a localização atual e o estado da disponibilidade.
+
+Os pedidos de transporte chegam de forma dinâmica ao longo do dia, especificando a localização de origem e o destino, o número de passageiros, o horário pretendido, a prioridade e a preferência ambiental.
+
+============================================================
+                Universidade do Minho
+============================================================
+
+A tarefa principal é desenvolver uma estratégia inteligente de alocação e gestão de frota, capaz de adaptar-se a condições dinâmicas (como variação de procura, trânsito, disponibilidade de estações de recarga) e de otimizar as operações com base em critérios de custo, tempo de resposta, satisfação do cliente e sustentabilidade ambiental.
+
+------------------------------------------------------------
+                        Tarefas
+------------------------------------------------------------
+
+Atendendo ao enunciado em questão, descrevem-se as seguintes tarefas:
+
+● Formular o problema como um problema de procura, detalhando o estado inicial, teste objetivo, operadores (ações disponíveis) e o custo da solução.
+
+● Representar a cidade (e os pontos críticos) sob a forma de grafo, onde os nós representam localizações (zonas de recolha de passageiros, estações de recarga, postos de abastecimento) e as arestas representam caminhos possíveis com tempos/distâncias associados.
+
+● Desenvolver e comparar diferentes estratégias de procura (informada e não informada), levando em consideração as diferentes prioridades e as condições variáveis, como tempo de resposta, distância, autonomia restante e custos operacionais.
+
+● Implementar um sistema de simulação dinâmica, considerando fatores como a chegada aleatória de pedidos ao longo do tempo, a variação de autonomia dos veículos e a necessidade de recarga/reabastecimento.
+
+● Avaliar a eficiência dos algoritmos com base em métricas quantitativas (tempo médio de resposta ao pedido, taxa de ocupação da frota, custos operacionais totais, emissões de CO2 estimadas, número de pedidos não atendidos ou rejeitados, km percorridos sem passageiros).
+
+● Simular condições dinâmicas, como mudanças de trânsito que afetam a deslocação, falhas em estações de recarga, entre outros.
+
+Para o desenvolvimento deste trabalho é necessário ter em consideração alguns aspetos:
+
+● Limitações de autonomia dos veículos elétricos e necessidade de planeamento de recargas
+● Capacidade de passageiros diferenciada entre veículos
+● Custos operacionais distintos (elétrico vs. combustão)
+● Tempo de recarga vs. tempo de reabastecimento
+● Localização e disponibilidade das estações de recarga
+● Condições de trânsito variáveis ao longo do dia
+● Preferências dos clientes (tempo de espera máximo, preferência ambiental)
+● Distribuição geográfica dos pedidos (zonas centrais vs. periféricas)
+● Otimização de rotas para minimizar quilómetros sem passageiros
+● Priorização de pedidos urgentes ou de clientes premium
+
+É encorajada a inclusão de novas funcionalidades ou características no sistema, como por exemplo o uso de heurísticas de predição de procura com base em padrões históricos e horários, sistema de recomendação de posicionamento proativo de veículos em zonas de alta procura, algoritmos de ride-sharing para otimizar ocupação (múltiplos passageiros), análise custo-benefício da expansão da frota elétrica, integração com dados meteorológicos (impacto da chuva na procura), sistema de incentivos para promover utilização de veículos elétricos, otimização de turnos e distribuição de veículos ao longo do dia. Tais extensões enriquecerão a análise e beneficiarão a avaliação global do trabalho.
+
+------------------------------------------------------------
+                    Resultados e Relatório
+------------------------------------------------------------
+
+Os resultados obtidos em ambas as fases deverão ser objeto de um relatório, que contenha, entre outros:
+
+● Descrição do problema;
+● Formulação do problema;
+● Descrição de todas as tarefas realizadas, bem como de todas as decisões tomadas pelo grupo de trabalho;
+● Sumário e discussão dos resultados obtidos.
+
+------------------------------------------------------------
+                Entrega e Avaliação
+------------------------------------------------------------
+
+A conclusão deste Instrumento de Avaliação compreende a entrega do respetivo relatório e a submissão do trabalho realizado, dentro dos prazos e nos termos estabelecidos.
+
+O relatório e o código resultantes da realização do trabalho de grupo deverão ser submetidos na plataforma Blackboard, no link disponibilizado para o efeito, num único ficheiro compactado; o ficheiro deverá ser identificado na forma IA-GRUPO[G], em que [G] designa o número do grupo de trabalho. Os grupos devem ter entre 3 e 4 elementos.
+
+A data limite para a entrega deste instrumento de avaliação, é o dia 21 de dezembro de 2025, podendo o mesmo ser entregue até dia 9 de janeiro de 2026 sem qualquer penalização.
+
+A avaliação contará, ainda, com uma sessão de apresentação do trabalho desenvolvido. As sessões de apresentação irão decorrer na semana de 12 a 16 de janeiro de 2026.
+
+Conforme instituído no sistema de avaliação, a entrega fora dos prazos estabelecidos acarretará uma penalização de 25% na classificação.
+
+------------------------------------------------------------
+                Avaliação pelos pares
+------------------------------------------------------------
+
+Cada grupo deverá realizar uma análise coletiva sobre o contributo e esforço que cada elemento deu para o avanço do trabalho. Dessa análise devem conseguir identificar os membros que trabalham acima, na média e abaixo.
+
+Para esta componente de avaliação está previsto 1 valor para cada aluno (5% da avaliação) que reflete a sua contribuição individual no desenvolvimento do instrumento. Para tal, cada grupo deverá colocar na primeira página do relatório a desenvolver, após a capa, a avaliação feita pelo grupo. Nessa página deverão indicar para cada elemento do grupo, o respetivo delta (parcela a somar à nota desta componente). Lembre-se que os deltas podem ser negativos, nulos ou positivos e que, em cada grupo, o somatório dos deltas deve ser igual a 0.00.
+
+Exemplo 1 (todos os alunos recebem 0 valores correspondendo a um esforço igual entre todos):
+PG1234 João DELTA = 0
+PG5678 António DELTA = 0
+PG9123 Maria DELTA = 0
+
+Exemplo 2 (O António recebe 1 valor, o João e a Maria recebem -0.5 valores nesta componente):
+PG1234 João DELTA = -0.5
+PG5678 António = 1
+PG9123 Maria DELTA = -0.5
+
+------------------------------------------------------------
+                    Bibliografia
+------------------------------------------------------------
+
+Aconselha-se a consulta dos manuais das ferramentas e das monografias fornecidas como referências da unidade curricular, nomeadamente:
+
+● Russell and Norvig (2009). Artificial Intelligence - A Modern Approach, 3rd edition, ISBN-13: 9780136042594;
+● Costa E., Simões A., (2008), Inteligência Artificial-Fundamentos e Aplicações, FCA, ISBN: 978-972-722-34
+
+------------------------------------------------------------
+                Código de Conduta
+------------------------------------------------------------
+
+Os intervenientes neste trabalho académico declararão ter atuado com integridade e confirmarão não ter recorrido a práticas de plágio nem a qualquer forma de utilização indevida de informação ou falsificação de resultados em nenhuma etapa decorrente da sua elaboração. Mais declararão conhecer e respeitar o Código de Conduta Ética da Universidade do Minho.
