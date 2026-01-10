@@ -81,8 +81,6 @@ A106897 & Carolina Gonçalves & -0.45 \\
 \end{tabular}
 \end{center}
 
-\textbf{Nota:} O somatório dos DELTAs é igual a 0.00.
-
 \newpage
 
 % ÍNDICE
@@ -96,7 +94,7 @@ Neste trabalho, o nosso grupo propôs-se a desenvolver um sistema de gestão int
 
 A TaxiGreen enfrenta desafios crescentes na sua operação diária. Por um lado, os veículos elétricos oferecem custos operacionais reduzidos e zero emissões locais, mas apresentam autonomia limitada e tempos de recarga significativos. Por outro lado, os veículos a combustão possuem maior flexibilidade operacional, embora com custos e impacto ambiental superiores. O nosso sistema pretende encontrar o equilíbrio ideal entre estas características distintas.
 
-O objetivo principal deste trabalho consiste em desenvolver algoritmos de procura que permitam otimizar a gestão da frota, garantindo eficiência operacional, redução de custos energéticos e cumprimento de critérios ambientais. Ao longo deste relatório, apresentamos a formulação do problema como um problema de procura, descrevemos os algoritmos implementados, analisamos as estratégias de alocação desenvolvidas e discutimos os resultados obtidos nas simulações realizadas.
+O objetivo principal deste trabalho consiste em desenvolver algoritmos de procura que permitam otimizar a gestão da frota e que garanta eficiência operacional, redução de custos energéticos e cumprimento de critérios ambientais. Ao longo deste relatório, apresentamos a formulação do problema como um problema de procura, descrevemos os algoritmos implementados, analisamos as estratégias de alocação desenvolvidas e discutimos os resultados obtidos nas simulações realizadas.
 
 \section{Descrição do Problema}
 
@@ -104,15 +102,15 @@ A TaxiGreen opera uma frota mista de veículos elétricos e a combustão, cada t
 
 O problema é caracterizado por pedidos dinâmicos ao longo do dia, condições de trânsito variáveis e eventos imprevistos (estradas cortadas, falhas em estações). Os principais desafios incluem responder rapidamente aos pedidos, gerir veículos heterogéneos, otimizar custos operacionais e reduzir emissões de CO$_2$.
 
-Os pedidos de transporte especificam localização de origem e destino, número de passageiros, horário pretendido, nível de prioridade (normal, urgente) e preferência ambiental do cliente. Este conjunto de requisitos torna o problema particularmente complexo, exigindo uma abordagem que considere múltiplos critérios de otimização simultaneamente.
+Os pedidos de transporte especificam localização de origem e destino, número de passageiros, horário pretendido, nível de prioridade (normal, urgente) e preferência ambiental do cliente. Este conjunto de requisitos torna o problema particularmente complexo, o que exige uma abordagem que considere múltiplos critérios de otimização simultaneamente.
 
 \section{Formulação do Problema}
 
-Representamos o estado através de um tuplo $S = (V, P, C, T)$, onde $V$ é o conjunto de veículos com propriedades como identificador, tipo, localização, autonomia atual/máxima, capacidade e custo por km. $P$ representa os pedidos pendentes com origem, destino, passageiros, horário e prioridade. $C$ descreve o estado da cidade incluindo grafo de localizações, estações e fatores de trânsito. $T$ indica o tempo atual da simulação.
+Representamos o estado através de um tuplo $S = (V, P, C, T)$, onde $V$ é o conjunto de veículos com propriedades como identificador, tipo, localização, autonomia atual/máxima, capacidade e custo por km. $P$ representa os pedidos pendentes com origem, destino, passageiros, horário e prioridade. $C$ descreve o estado da cidade e inclui grafo de localizações, estações e fatores de trânsito. $T$ indica o tempo atual da simulação.
 
 No estado inicial, todos os veículos estão disponíveis com autonomia máxima, posicionados em localizações estratégicas. A cidade opera em condições normais com trânsito a fator 1.0, todas as estradas abertas e estações funcionais.
 
-O objetivo é satisfazer continuamente os pedidos maximizando a taxa de atendimento, minimizando tempo de resposta, custos operacionais, emissões de CO$_2$ e quilómetros vazios (percorridos sem passageiros).
+O objetivo é satisfazer continuamente os pedidos com o máximo de taxa de atendimento e o mínimo de tempo de resposta, custos operacionais, emissões de CO$_2$ e quilómetros vazios (percorridos sem passageiros).
 
 Os operadores definidos são:
 \begin{itemize}
@@ -139,8 +137,8 @@ Cada aresta possui atributos de distância em quilómetros, tempo base de viagem
 Esta representação permite modelar condições dinâmicas que afetam a operação:
 \begin{itemize}
     \item Congestionamento de trânsito: fatores entre 1.0 (livre) e 3.0 (severo)
-    \item Estradas cortadas: arestas intransitáveis forçando rotas alternativas
-    \item Disponibilidade de estações: simulando avarias ou manutenção
+    \item Estradas cortadas: arestas intransitáveis que forçam rotas alternativas
+    \item Disponibilidade de estações: simulação de avarias ou manutenção
 \end{itemize}
 
 \section{Algoritmos de Procura}
@@ -149,19 +147,19 @@ Esta representação permite modelar condições dinâmicas que afetam a operaç
 
 Implementámos três algoritmos de procura não-informada que exploram o espaço de estados sem utilizar informação específica do domínio:
 
-\textbf{BFS (Breadth-First Search)} explora todos os nós a uma determinada profundidade antes de avançar, utilizando uma fila FIFO. É completo e ótimo para custos uniformes, com complexidade temporal e espacial $O(b^d)$ onde $b$ é o fator de ramificação e $d$ a profundidade da solução.
+\textbf{BFS (Breadth-First Search)} explora todos os nós a uma determinada profundidade antes de avançar e utiliza uma fila FIFO. É completo e ótimo para custos uniformes, com complexidade temporal e espacial $O(b^d)$ onde $b$ é o fator de ramificação e $d$ a profundidade da solução.
 
-\textbf{DFS (Depth-First Search)} explora cada ramo até à máxima profundidade antes de retroceder, utilizando uma pilha LIFO. Tem menor consumo de memória com complexidade espacial $O(bm)$ onde $m$ é a profundidade máxima, mas não garante soluções ótimas.
+\textbf{DFS (Depth-First Search)} explora cada ramo até à máxima profundidade antes de retroceder e utiliza uma pilha LIFO. Tem menor consumo de memória com complexidade espacial $O(bm)$ onde $m$ é a profundidade máxima, mas não garante soluções ótimas.
 
-\textbf{UCS (Uniform Cost Search)} expande sempre o nó com menor custo acumulado $g(n)$, utilizando uma fila de prioridade. Garante otimalidade independentemente da variação de custos entre ações, sendo adequado quando os custos variam conforme veículo e trânsito.
+\textbf{UCS (Uniform Cost Search)} expande sempre o nó com menor custo acumulado $g(n)$ através de uma fila de prioridade. Garante otimalidade independentemente da variação de custos entre ações e é adequado quando os custos variam conforme veículo e trânsito.
 
 \subsection{Algoritmos Informados}
 
 Desenvolvemos algoritmos que utilizam heurísticas para guiar a procura de forma mais eficiente:
 
-\textbf{A*} combina o custo do caminho $g(n)$ com estimativa heurística $h(n)$, expandindo por ordem de $f(n) = g(n) + h(n)$. É completo e ótimo quando a heurística é admissível (nunca sobrestima o custo real). A eficiência depende diretamente da qualidade da heurística.
+\textbf{A*} combina o custo do caminho $g(n)$ com a estimativa heurística $h(n)$ e expande por ordem de $f(n) = g(n) + h(n)$. É completo e ótimo quando a heurística é admissível (nunca sobrestima o custo real). A eficiência depende diretamente da qualidade da heurística.
 
-\textbf{Greedy Best-First Search} expande o nó com menor valor heurístico $h(n)$, ignorando o custo acumulado. É tipicamente mais rápido pois foca-se no objetivo, mas não garante soluções ótimas e pode ficar presa em mínimos locais.
+\textbf{Greedy Best-First Search} expande o nó com menor valor heurístico $h(n)$, sem considerar o custo acumulado. É tipicamente mais rápido pois foca-se no objetivo, mas não garante soluções ótimas e pode ficar presa em mínimos locais.
 
 \subsection{Comparação de Complexidade}
 
@@ -190,19 +188,19 @@ Implementámos quatro heurísticas para utilização com os algoritmos informado
 
 \textbf{Tempo Estimado}: $h = d_{euclidiana}/v_{media}$ --- fornece estimativa temporal relevante quando o objetivo é minimizar tempo.
 
-\textbf{Composta}: $h = (d_{euclidiana}/v_{media}) \times f_{transito}$ --- ajusta pelo fator de trânsito atual, oferecendo maior realismo.
+\textbf{Composta}: $h = (d_{euclidiana}/v_{media}) \times f_{transito}$ --- ajusta pelo fator de trânsito atual, o que oferece maior realismo.
 
 \section{Estratégias de Alocação}
 
-Desenvolvemos três estratégias de alocação de veículos a pedidos, cada uma otimizando diferentes critérios:
+Desenvolvemos três estratégias de alocação de veículos a pedidos, cada uma delas otimiza diferentes critérios:
 
 \subsection{Veículo Mais Próximo (NearestVehicleStrategy)}
 
-Atribui a cada pedido o veículo disponível com menor distância ao ponto de recolha. Simples e eficiente computacionalmente, minimiza tempo de resposta inicial. Não considera custos da viagem completa nem características do veículo.
+Atribui a cada pedido o veículo disponível com menor distância ao ponto de recolha. Simples e eficiente computacionalmente, minimiza o tempo de resposta inicial. Não considera os custos da viagem completa nem as características do veículo.
 
 \subsection{Menor Custo (LowestCostStrategy)}
 
-Seleciona o veículo que minimiza o custo operacional total: $(d_{pickup} + d_{viagem}) \times custo_{km}$. Favorece naturalmente veículos elétricos (0.12 EUR/km) face aos de combustão (0.25 EUR/km). Adequada quando o objetivo principal é otimização financeira.
+Seleciona o veículo que minimiza o custo operacional total: $(d_{pickup} + d_{viagem}) \times custo_{km}$. Favorece naturalmente os veículos elétricos (0.12 EUR/km) face aos de combustão (0.25 EUR/km). Adequada quando o objetivo principal é a otimização financeira.
 
 \subsection{Ecológica (EcoFriendlyStrategy)}
 
@@ -210,7 +208,7 @@ Prioriza veículos elétricos sempre que tenham autonomia suficiente. Primeiro f
 
 \section{Simulação Dinâmica}
 
-Implementámos um simulador orientado a eventos através da classe \texttt{TaxiSimulator}. Esta arquitetura processa ocorrências por ordem temporal, sendo mais eficiente que passos temporais fixos pois apenas processa eventos quando efetivamente ocorrem.
+Implementámos um simulador orientado a eventos através da classe \texttt{TaxiSimulator}. Esta arquitetura processa ocorrências por ordem temporal e é mais eficiente que passos temporais fixos pois apenas processa eventos quando efetivamente ocorrem.
 
 O simulador mantém uma fila de eventos ordenada por tempo. Os tipos de eventos suportados incluem:
 \begin{itemize}
@@ -221,7 +219,7 @@ O simulador mantém uma fila de eventos ordenada por tempo. Os tipos de eventos 
     \item Eventos dinâmicos (trânsito, estradas cortadas, falhas em estações)
 \end{itemize}
 
-O ciclo principal extrai o próximo evento, avança o tempo simulado, processa o evento invocando o handler apropriado e adiciona novos eventos gerados. O ciclo termina quando a fila fica vazia ou se atinge o tempo máximo.
+O ciclo principal extrai o próximo evento, avança o tempo simulado, processa o evento e invoca o handler apropriado, depois adiciona os novos eventos gerados. O ciclo termina quando a fila fica vazia ou se atinge o tempo máximo.
 
 Para simular condições realistas, implementámos mecanismos de atualização de trânsito (fatores multiplicativos nas arestas), bloqueio de estradas (arestas intransitáveis temporariamente) e falhas de estações (indisponibilidade de pontos de recarga).
 
@@ -270,19 +268,19 @@ O sistema foi estruturado em cinco módulos independentes:
     \item \texttt{utils}: classes auxiliares (Node, Problem)
 \end{itemize}
 
-Esta separação facilita testabilidade (cada módulo verificável isoladamente) e extensibilidade (adicionar novos algoritmos ou estratégias sem modificar código existente), seguindo o princípio Open-Closed.
+Esta separação facilita a testabilidade (cada módulo verificável isoladamente) e a extensibilidade (adicionar novos algoritmos ou estratégias sem modificar o código existente), conforme o princípio Open-Closed.
 
 \subsection{Decisões Técnicas}
 
-Optámos por simulação orientada a eventos por ser mais eficiente que passos temporais fixos, dado que o ambiente apresenta períodos sem atividade significativa. A função de custo multi-objetivo com pesos configuráveis permite ajustar prioridades conforme objetivos operacionais.
+Optámos por uma simulação orientada a eventos por ser mais eficiente que os passos temporais fixos, dado que o ambiente apresenta períodos sem atividade significativa. A função de custo multi-objetivo com pesos configuráveis permite ajustar as prioridades conforme os objetivos operacionais.
 
 \subsection{Tratamento de Casos Limite}
 
-Durante o desenvolvimento, identificámos e tratámos casos limite:
+Durante o desenvolvimento, identificámos e tratámos os casos limite:
 \begin{itemize}
-    \item Autonomia insuficiente: procura rota via estação de recarga
-    \item Estações indisponíveis: pedidos entram em fila com prioridade
-    \item Empate de custos: distância como critério de desempate
+    \item Autonomia insuficiente: procura a rota via estação de recarga
+    \item Estações indisponíveis: os pedidos entram em fila com prioridade
+    \item Empate de custos: a distância como critério de desempate
 \end{itemize}
 
 \section{Análise Comparativa dos Algoritmos}
@@ -309,39 +307,30 @@ Greedy & 4.0 & 4 & 0.06 & Heurístico \\
 
 A implementação de múltiplas heurísticas é essencial para o problema proposto pelas seguintes razões:
 
-\textbf{Heurística Euclidiana}: Sendo a distância em linha reta, é sempre admissível (nunca sobrestima o custo real) e consistente. Ideal para garantir optimalidade com A* em qualquer configuração de cidade.
+\textbf{Heurística Euclidiana}: Como a distância em linha reta, é sempre admissível (nunca sobrestima o custo real) e consistente. Ideal para garantir optimalidade com A* em qualquer configuração de cidade.
 
 \textbf{Heurística Manhattan}: Mais adequada para grelhas urbanas regulares onde as ruas seguem padrões ortogonais. Fornece estimativas mais precisas em malhas reticulares.
 
 \textbf{Tempo Estimado}: Quando o objetivo é minimizar tempo de resposta ao cliente, esta heurística é mais relevante que a distância pura, pois considera a velocidade média da cidade.
 
-\textbf{Heurística Composta}: Integra o fator de trânsito atual, tornando as estimativas mais realistas em condições dinâmicas. Embora possa perder admissibilidade em certos casos, produz soluções mais práticas.
+\textbf{Heurística Composta}: Integra o fator de trânsito atual, o que torna as estimativas mais realistas em condições dinâmicas. Embora possa perder admissibilidade em certos casos, produz soluções mais práticas.
 
-A diversidade de heurísticas permite ao sistema adaptar-se a diferentes objetivos operacionais: minimizar distância, minimizar tempo, ou encontrar o melhor compromisso em condições de trânsito variável.
+A diversidade de heurísticas permite ao sistema adaptar-se a diferentes objetivos operacionais: minimizar a distância, minimizar o tempo, ou encontrar o melhor compromisso em condições de trânsito variável.
 
 \subsection{Gestão de Eventos Dinâmicos}
 
 O simulador processa três tipos principais de eventos dinâmicos que afetam a operação:
 
-\textbf{Variação de Trânsito}: O sistema atualiza periodicamente os fatores de trânsito nas arestas do grafo. Quando uma aresta passa de fator 1.0 para 2.0, o tempo de viagem duplica, forçando recálculo de rotas para veículos em deslocação.
+\textbf{Variação de Trânsito}: O sistema atualiza periodicamente os fatores de trânsito nas arestas do grafo. Quando uma aresta passa de fator 1.0 para 2.0, o tempo de viagem duplica, forçando o recálculo de rotas para os veículos em deslocação.
 
-\textbf{Bloqueio de Estradas}: Eventos de estradas cortadas (acidentes, obras) tornam certas arestas intransitáveis. O algoritmo de procura automaticamente encontra rotas alternativas, podendo resultar em atrasos significativos quando não existem alternativas diretas.
+\textbf{Bloqueio de Estradas}: Eventos de estradas cortadas (acidentes, obras) tornam certas arestas intransitáveis. O algoritmo de procura encontra automaticamente as rotas alternativas, o que pode resultar em atrasos significativos quando não existem alternativas diretas.
 
 \textbf{Falhas em Estações}: Quando uma estação de recarga fica indisponível, veículos elétricos com autonomia crítica são redirecionados para estações alternativas. Esta gestão é crucial para evitar que veículos fiquem imobilizados.
 
 \section{Conclusões}
 
-O sistema desenvolvido responde integralmente aos requisitos do enunciado: 5 algoritmos de procura (BFS, DFS, UCS, A*, Greedy), 4 heurísticas (Euclidiana, Manhattan, Tempo Estimado, Composta), 3 estratégias de alocação (NearestVehicle, LowestCost, EcoFriendly) e cálculo das 6 métricas obrigatórias.
+O sistema desenvolvido responde integralmente aos requisitos do enunciado: 5 algoritmos de procura (BFS, DFS, UCS, A*, Greedy), 4 heurísticas (Euclidiana, Manhattan, Tempo Estimado, Composta), 3 estratégias de alocação (NearestVehicle, LowestCost, EcoFriendly) e o cálculo das 6 métricas obrigatórias.
 
-As simulações demonstraram taxa de atendimento de 96.67\% com custos de 32.96 EUR e emissões de 11.92 kg CO$_2$. O simulador orientado a eventos modelou adequadamente condições dinâmicas de operação.
-
-\subsection{Trabalho Futuro}
-
-Identificamos três extensões prioritárias para desenvolvimento futuro:
-\begin{itemize}
-    \item Posicionamento proativo de veículos em zonas de elevada procura prevista
-    \item Sistema de previsão de procura baseado em padrões históricos e horários
-    \item Algoritmos de ride-sharing para otimização da ocupação de veículos
-\end{itemize}
+As simulações demonstraram uma taxa de atendimento de 96.67\% com custos de 32.96 EUR e emissões de 11.92 kg CO$_2$. O simulador orientado a eventos modelou adequadamente as condições dinâmicas de operação.
 
 \end{document}

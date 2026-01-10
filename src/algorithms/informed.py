@@ -10,8 +10,6 @@ Algoritmos implementados:
     - A* Search: Combina custo real g(n) com heuristica h(n) para garantir
                  optimalidade quando h(n) e admissivel
     - Greedy Best-First: Usa apenas h(n), sendo rapido mas nao optimo
-
-Autores: Grupo 18 - Inteligencia Artificial 2024/2025
 """
 
 import heapq

@@ -1,0 +1,75 @@
+
+COMO TESTAR:
+[1] Testar todos os modulos
+    Executa a suite completa de testes do projeto.
+    
+    Comando:
+    python3 -m pytest tests/ -v
+    
+    Resultado esperado:
+    Verifica algoritmos, modelos e integracao. Devem passar os 14 testes
+
+
+[2] Testar apenas algoritmos de procura
+    Valida os 5 algoritmos implementados e cenarios com obstaculos.
+    
+    Comando:
+    python3 -m pytest tests/test_algorithms.py -v
+    
+    Resultado esperado:
+    Testa BFS, DFS, UCS, A* e Greedy. Devem passar os 6 testes.
+
+
+[3] Testar apenas modelos de dados
+    Verifica a corretude das classes fundamentais do sistema.
+    
+    Comando:
+    python3 -m pytest tests/test_models.py -v
+    
+    Resultado esperado:
+    Valida Vehicle, Request, Station e City. Devem passaros  4 testes.
+
+
+[4] Testar apenas integracao
+    Simula cenarios completos de operacao da frota.
+    
+    Comando:
+    python3 -m pytest tests/test_integration.py -v
+    
+    Resultado esperado:
+    Testa diferentes estrategias e condicoes. Devem passar os 4 testes.
+
+
+DEMONSTRACOES
+[5] Script principal
+    Demonstracao interativa das funcionalidades do sistema.
+    
+    Comando:
+    python3 main.py
+    
+    Resultado esperado:
+    Inicializa frota (10 veiculos), cidade (10 nos), estacoes (4) e 
+    demonstra alocacao de pedidos.
+
+
+[6] Demonstracao simples
+    Exemplo minimalista focado nas operacoes basicas.
+    
+    Comando:
+    python3 demo_simple.py
+    
+    Resultado esperado:
+    Cria ambiente com 2 veiculos e 1 pedido, mostra fluxo de alocacao 
+    simplificado.
+
+
+[7] Gerar resultados experimentais
+    Executa bateria de experimentos para analise comparativa.
+    
+    Comando:
+    python3 gerar_resultados.py
+    
+    Resultado esperado:
+    Compara 3 estrategias em 9 cenarios diferentes. Gera JSON e tabela 
+    (~30-45s).
+

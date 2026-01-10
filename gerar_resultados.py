@@ -154,10 +154,10 @@ def main():
     
     resultados = []
     
-    # ========== EXPERIMENTO 1: Comparação de Estratégias ==========
-    print("\n\n### SÉRIE 1: COMPARAÇÃO DE ESTRATÉGIAS ###\n")
+    #  Comparação de Estratégias
+    print("\n\n SÉRIE 1: COMPARAÇÃO DE ESTRATÉGIAS \n")
     
-    estrategias = ['nearest', 'lowest_cost', 'eco_friendly', 'balanced']
+    estrategias = ['nearest', 'lowest_cost', 'eco_friendly']
     
     for estrategia in estrategias:
         frota = criar_frota_padrao()  # Nova frota para cada teste
@@ -172,8 +172,8 @@ def main():
         )
         resultados.append(resultado)
     
-    # ========== EXPERIMENTO 2: Diferentes Volumes de Demanda ==========
-    print("\n\n### SÉRIE 2: DIFERENTES VOLUMES DE DEMANDA ###\n")
+    # EXPERIMENTO 2: Diferentes Volumes de Demanda 
+    print("\n\n SÉRIE 2: DIFERENTES VOLUMES DE DEMANDA \n")
     
     volumes = [
         (10, 60.0, "Baixa Demanda"),
@@ -187,15 +187,15 @@ def main():
             nome=nome,
             cidade=cidade,
             frota=frota,
-            estrategia='balanced',
+            estrategia='lowest_cost',
             num_pedidos=num_pedidos,
             tempo_total=tempo,
             seed=42
         )
         resultados.append(resultado)
     
-    # ========== EXPERIMENTO 3: Diferentes Composições de Frota ==========
-    print("\n\n### SÉRIE 3: COMPOSIÇÕES DE FROTA ###\n")
+    # EXPERIMENTO 3: Diferentes Composições de Frota
+    print("\n\nSÉRIE 3: COMPOSIÇÕES DE FROTA \n")
     
     composicoes = [
         ("Só Elétricos", 5, 0),
@@ -229,14 +229,14 @@ def main():
             nome=f"Frota: {nome_comp}",
             cidade=cidade,
             frota=frota,
-            estrategia='balanced',
+            estrategia='lowest_cost',
             num_pedidos=25,
             tempo_total=150.0,
             seed=42
         )
         resultados.append(resultado)
     
-    # ========== EXPORTAR RESULTADOS ==========
+    # EXPORTAR RESULTADOS 
     
     output_dir = "resultados"
     os.makedirs(output_dir, exist_ok=True)

@@ -141,10 +141,10 @@ def exibir_estado_sistema(frota, cidade, estacoes, pedidos):
 
 def main():
     """Função principal."""
-    print("\n" + "=" * 70)
+    print("\n" + "-" * 70)
     print("  SISTEMA TAXIGREEN - GESTAO INTELIGENTE DE FROTA")
     print("  Trabalho de Inteligencia Artificial 2024/2025")
-    print("=" * 70)
+    print("-" * 70)
     
     # Criar componentes do sistema
     print("\n    A inicializar sistema...")
@@ -209,11 +209,10 @@ def main():
     print(f"   Fator transito: {fator}x (1.0 = livre, 3.0 = congestionamento)")
     print(f"   Taxa pedidos: ~{taxa_pedidos} pedidos/hora")
     
-    print("\n" + "=" * 70)
-    print("[OK] DEMONSTRACAO CONCLUIDA")
-    print("=" * 70)
+    print("\n" + "-" * 70)
+    print("DEMONSTRACAO CONCLUIDA")
+    print("-" * 70)
     
-    print("\nNOTA: Sistema completo com todos os algoritmos implementados.")
     print("\n")
 
 

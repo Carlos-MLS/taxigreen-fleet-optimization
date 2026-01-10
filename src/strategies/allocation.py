@@ -10,10 +10,6 @@ Estrategias implementadas:
     - LowestCostStrategy: Minimiza custo operacional total (euros)
     - EcoFriendlyStrategy: Prioriza veiculos eletricos (emissoes CO2)
 
-O padrao Strategy permite adicionar novas estrategias sem modificar
-o codigo existente (principio Open-Closed).
-
-Autores: Grupo 18 - Inteligencia Artificial 2024/2025
 """
 
 from abc import ABC, abstractmethod

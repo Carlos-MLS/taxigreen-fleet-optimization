@@ -12,8 +12,6 @@ Algoritmos implementados:
 
 Cada algoritmo tem as suas vantagens e desvantagens em termos de completude,
 optimalidade e complexidade de memoria.
-
-Autores: Grupo 18 - Inteligencia Artificial 2024/2025
 """
 
 from collections import deque

@@ -7,9 +7,6 @@ from .allocation import (
     NearestVehicleStrategy,
     LowestCostStrategy,
     EcoFriendlyStrategy,
-    MinEmissionsStrategy,
-    BalancedStrategy,
-    PriorityAwareStrategy,
     criar_estrategia
 )
 
@@ -18,8 +15,5 @@ __all__ = [
     'NearestVehicleStrategy',
     'LowestCostStrategy',
     'EcoFriendlyStrategy',
-    'MinEmissionsStrategy',
-    'BalancedStrategy',
-    'PriorityAwareStrategy',
     'criar_estrategia'
 ]

@@ -6,8 +6,6 @@ Heuristicas implementadas:
     - Manhattan: Soma das diferencas absolutas
     - Tempo Estimado: Distancia / velocidade media
     - Composta: Tempo estimado ajustado pelo transito
-
-Autores: Grupo 18 - Inteligencia Artificial 2024/2025
 """
 
 import math
