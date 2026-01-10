@@ -112,17 +112,17 @@ class SearchResult:
         """Representação string do resultado."""
         if self.success:
             return (
-                f"✓ Solução encontrada!\n"
+                f"[OK] Solucao encontrada!\n"
                 f"  Custo: {self.cost:.2f}\n"
                 f"  Profundidade: {len(self.solution)}\n"
-                f"  Nós expandidos: {self.nodes_expanded}\n"
-                f"  Nós gerados: {self.nodes_generated}\n"
+                f"  Nos expandidos: {self.nodes_expanded}\n"
+                f"  Nos gerados: {self.nodes_generated}\n"
                 f"  Tempo: {self.time_elapsed:.4f}s\n"
                 f"  Max fronteira: {self.max_frontier_size}"
             )
         else:
             return (
-                f"✗ Solução não encontrada\n"
-                f"  Nós expandidos: {self.nodes_expanded}\n"
+                f"[FALHA] Solucao nao encontrada\n"
+                f"  Nos expandidos: {self.nodes_expanded}\n"
                 f"  Tempo: {self.time_elapsed:.4f}s"
             )

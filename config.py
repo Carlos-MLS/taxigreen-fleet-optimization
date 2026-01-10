@@ -241,7 +241,7 @@ def validar_configuracoes():
     ])
     
     if abs(soma_pesos - 1.0) > 0.01:
-        print(f"⚠️  AVISO: Soma dos pesos = {soma_pesos:.2f} (esperado ~1.0)")
+        print(f"AVISO: Soma dos pesos = {soma_pesos:.2f} (esperado ~1.0)")
     
     return True
 

@@ -138,7 +138,7 @@ class TaxiSimulator:
         # Gerar pedidos
         nodes = list(self.cidade.nodes)
         if len(nodes) < 2:
-            print("⚠️  Cidade precisa ter pelo menos 2 nós para gerar pedidos")
+            print("AVISO: Cidade precisa ter pelo menos 2 nos para gerar pedidos")
             return
         
         for i, tempo in enumerate(tempos):
@@ -173,9 +173,9 @@ class TaxiSimulator:
         self.metricas.iniciar_simulacao()
         
         if verbose:
-            print(f"\n🚀 Iniciando simulação - {tempo_total} minutos")
-            print(f"🚗 Frota: {len(self.frota)} veículos")
-            print(f"📋 Eventos agendados: {len(self.eventos)}\n")
+            print(f"\nIniciando simulacao - {tempo_total} minutos")
+            print(f"Frota: {len(self.frota)} veiculos")
+            print(f"Eventos agendados: {len(self.eventos)}\n")
         
         while self.eventos and self.tempo_atual < tempo_total:
             # Obter próximo evento
@@ -198,7 +198,7 @@ class TaxiSimulator:
         self.metricas.finalizar_simulacao(tempo_total)
         
         if verbose:
-            print(f"\n✅ Simulação concluída - {tempo_total} minutos")
+            print(f"\nSimulacao concluida - {tempo_total} minutos")
     
     def _processar_evento(self, evento: SimulationEvent, verbose: bool = False):
         """Processa um evento."""
@@ -232,7 +232,7 @@ class TaxiSimulator:
         self.metricas.registrar_pedido(pedido.id, self.tempo_atual)
         
         if verbose:
-            print(f"    📞 Novo pedido {pedido.id}: {pedido.origem} → {pedido.destino}")
+            print(f"    Novo pedido {pedido.id}: {pedido.origem} -> {pedido.destino}")
         
         # Tentar alocar imediatamente
         self._tentar_alocar_pedidos(verbose)
@@ -306,7 +306,7 @@ class TaxiSimulator:
         self.pedidos_em_servico[pedido.id] = pedido
         
         if verbose:
-            print(f"    ✅ Alocado {veiculo.id} ao pedido {pedido.id}")
+            print(f"    Alocado {veiculo.id} ao pedido {pedido.id}")
         
         # Calcular tempo até cliente
         dist_to_pickup = self._calcular_distancia(veiculo.localizacao, pedido.origem)
@@ -334,7 +334,7 @@ class TaxiSimulator:
         pedido = self.pedidos_em_servico[pedido_id]
         
         if verbose:
-            print(f"    🚗 {veiculo_id} chegou ao cliente em {pedido.origem}")
+            print(f"    {veiculo_id} chegou ao cliente em {pedido.origem}")
         
         # Atualizar posição e autonomia
         veiculo.localizacao = pedido.origem
@@ -368,7 +368,7 @@ class TaxiSimulator:
         pedido = self.pedidos_em_servico.pop(pedido_id)
         
         if verbose:
-            print(f"    🎯 {veiculo_id} completou pedido {pedido_id} em {pedido.destino}")
+            print(f"    {veiculo_id} completou pedido {pedido_id} em {pedido.destino}")
         
         # Atualizar posição e autonomia
         veiculo.localizacao = pedido.destino
@@ -429,7 +429,7 @@ class TaxiSimulator:
         veiculo.estado = VehicleState.AVAILABLE
         
         if verbose:
-            print(f"    🔋 {veiculo_id} recarga completa")
+            print(f"    {veiculo_id} recarga completa")
         
         # Registrar tempo de recarga
         self.metricas.registrar_tempo_veiculo(veiculo_id, tempo_recarga=tempo_recarga)
@@ -438,19 +438,54 @@ class TaxiSimulator:
         self._tentar_alocar_pedidos(verbose)
     
     def _processar_atualizacao_transito(self, evento: SimulationEvent, verbose: bool):
-        """Processa atualização de trânsito."""
-        # Implementação futura: atualizar fatores de trânsito
-        pass
+        """Processa atualizacao de transito."""
+        origem = evento.dados.get('origem')
+        destino = evento.dados.get('destino')
+        fator = evento.dados.get('fator', 1.5)
+        
+        aresta = self.cidade.obter_aresta(origem, destino)
+        if aresta:
+            aresta.atualizar_transito(fator)
+            if verbose:
+                print(f"    Transito atualizado {origem}-{destino}: fator={fator}")
     
     def _processar_bloqueio_estrada(self, evento: SimulationEvent, verbose: bool):
         """Processa bloqueio de estrada."""
-        # Implementação futura: bloquear arestas específicas
-        pass
+        origem = evento.dados.get('origem')
+        destino = evento.dados.get('destino')
+        duracao = evento.dados.get('duracao', 30.0)
+        
+        aresta = self.cidade.obter_aresta(origem, destino)
+        if aresta:
+            aresta.cortar_estrada(duracao)
+            if verbose:
+                print(f"    Estrada bloqueada {origem}-{destino} por {duracao}min")
+            
+            evento_reabrir = SimulationEvent(
+                tempo=self.tempo_atual + duracao,
+                tipo=EventType.ESTRADA_BLOQUEADA,
+                dados={'origem': origem, 'destino': destino, 'reabrir': True}
+            )
+            self._inserir_evento(evento_reabrir)
+        
+        if evento.dados.get('reabrir'):
+            aresta = self.cidade.obter_aresta(origem, destino)
+            if aresta:
+                aresta.reabrir_estrada()
+                if verbose:
+                    print(f"    Estrada reaberta {origem}-{destino}")
     
     def _processar_avaria_estacao(self, evento: SimulationEvent, verbose: bool):
-        """Processa avaria em estação."""
-        # Implementação futura: marcar estações como indisponíveis
-        pass
+        """Processa avaria em estacao."""
+        station_id = evento.dados.get('station_id')
+        duracao = evento.dados.get('duracao', 60.0)
+        reparar = evento.dados.get('reparar', False)
+        
+        if verbose:
+            if reparar:
+                print(f"    Estacao {station_id} reparada")
+            else:
+                print(f"    Estacao {station_id} avariada por {duracao}min")
     
     def _calcular_distancia(self, origem: str, destino: str) -> float:
         """Calcula distância entre dois nós."""

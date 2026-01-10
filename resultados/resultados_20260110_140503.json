@@ -1,0 +1,1082 @@
+[
+  {
+    "experimento": "Estratégia: nearest",
+    "estrategia": "nearest",
+    "num_pedidos": 30,
+    "tempo_total": 180.0,
+    "timestamp": "2026-01-10T14:05:03.183774",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 180.0,
+        "inicio": "2026-01-10 14:05:03.183055",
+        "fim": "2026-01-10 14:05:03.183744",
+        "num_veiculos": 5,
+        "total_pedidos": 30
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.1426909153213915,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 32.96367830878165,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 11.923368787183087,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 30,
+            "atendidos": 29,
+            "rejeitados": 0,
+            "pendentes": 1,
+            "taxa_atendimento": 96.66666666666667
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 71.60886318270356,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 116.97523703859909,
+          "km_sem_passageiros": 71.60886318270356,
+          "km_totais": 188.58410022130266,
+          "percentagem_vazios": 37.97184550482827
+        },
+        "eficiencia_por_veiculo": {
+          "EV001": {
+            "pedidos_atendidos": 4,
+            "km_totais": 29.362382385504418,
+            "km_vazios": 11.87048159266775,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8808714715651322,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV002": {
+            "pedidos_atendidos": 8,
+            "km_totais": 36.56597964254816,
+            "km_vazios": 17.286620241456426,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.5484896946382224,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV003": {
+            "pedidos_atendidos": 6,
+            "km_totais": 43.166612945362814,
+            "km_vazios": 17.460303485425083,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8633322589072563,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "CV001": {
+            "pedidos_atendidos": 6,
+            "km_totais": 42.0347815575831,
+            "km_vazios": 13.561471194917294,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.7514492315659622,
+            "emissoes": 6.305217233637465,
+            "num_recargas": 0
+          },
+          "CV002": {
+            "pedidos_atendidos": 5,
+            "km_totais": 37.45434369030415,
+            "km_vazios": 11.429986668237005,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.8727171845152075,
+            "emissoes": 5.618151553545622,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimento": "Estratégia: lowest_cost",
+    "estrategia": "lowest_cost",
+    "num_pedidos": 30,
+    "tempo_total": 180.0,
+    "timestamp": "2026-01-10T14:05:03.184682",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 180.0,
+        "inicio": "2026-01-10 14:05:03.184024",
+        "fim": "2026-01-10 14:05:03.184663",
+        "num_veiculos": 5,
+        "total_pedidos": 30
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.1426909153213915,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 32.96367830878165,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 11.923368787183087,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 30,
+            "atendidos": 29,
+            "rejeitados": 0,
+            "pendentes": 1,
+            "taxa_atendimento": 96.66666666666667
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 71.60886318270356,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 116.97523703859909,
+          "km_sem_passageiros": 71.60886318270356,
+          "km_totais": 188.58410022130266,
+          "percentagem_vazios": 37.97184550482827
+        },
+        "eficiencia_por_veiculo": {
+          "EV001": {
+            "pedidos_atendidos": 4,
+            "km_totais": 29.362382385504418,
+            "km_vazios": 11.87048159266775,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8808714715651322,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV002": {
+            "pedidos_atendidos": 8,
+            "km_totais": 36.56597964254816,
+            "km_vazios": 17.286620241456426,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.5484896946382224,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV003": {
+            "pedidos_atendidos": 6,
+            "km_totais": 43.166612945362814,
+            "km_vazios": 17.460303485425083,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8633322589072563,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "CV001": {
+            "pedidos_atendidos": 6,
+            "km_totais": 42.0347815575831,
+            "km_vazios": 13.561471194917294,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.7514492315659622,
+            "emissoes": 6.305217233637465,
+            "num_recargas": 0
+          },
+          "CV002": {
+            "pedidos_atendidos": 5,
+            "km_totais": 37.45434369030415,
+            "km_vazios": 11.429986668237005,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.8727171845152075,
+            "emissoes": 5.618151553545622,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimento": "Estratégia: eco_friendly",
+    "estrategia": "eco_friendly",
+    "num_pedidos": 30,
+    "tempo_total": 180.0,
+    "timestamp": "2026-01-10T14:05:03.185572",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 180.0,
+        "inicio": "2026-01-10 14:05:03.184926",
+        "fim": "2026-01-10 14:05:03.185556",
+        "num_veiculos": 5,
+        "total_pedidos": 30
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.1426909153213915,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 32.96367830878165,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 11.923368787183087,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 30,
+            "atendidos": 29,
+            "rejeitados": 0,
+            "pendentes": 1,
+            "taxa_atendimento": 96.66666666666667
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 71.60886318270356,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 116.97523703859909,
+          "km_sem_passageiros": 71.60886318270356,
+          "km_totais": 188.58410022130266,
+          "percentagem_vazios": 37.97184550482827
+        },
+        "eficiencia_por_veiculo": {
+          "EV001": {
+            "pedidos_atendidos": 4,
+            "km_totais": 29.362382385504418,
+            "km_vazios": 11.87048159266775,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8808714715651322,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV002": {
+            "pedidos_atendidos": 8,
+            "km_totais": 36.56597964254816,
+            "km_vazios": 17.286620241456426,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.5484896946382224,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV003": {
+            "pedidos_atendidos": 6,
+            "km_totais": 43.166612945362814,
+            "km_vazios": 17.460303485425083,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8633322589072563,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "CV001": {
+            "pedidos_atendidos": 6,
+            "km_totais": 42.0347815575831,
+            "km_vazios": 13.561471194917294,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.7514492315659622,
+            "emissoes": 6.305217233637465,
+            "num_recargas": 0
+          },
+          "CV002": {
+            "pedidos_atendidos": 5,
+            "km_totais": 37.45434369030415,
+            "km_vazios": 11.429986668237005,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.8727171845152075,
+            "emissoes": 5.618151553545622,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimento": "Estratégia: balanced",
+    "estrategia": "balanced",
+    "num_pedidos": 30,
+    "tempo_total": 180.0,
+    "timestamp": "2026-01-10T14:05:03.186450",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 180.0,
+        "inicio": "2026-01-10 14:05:03.185812",
+        "fim": "2026-01-10 14:05:03.186429",
+        "num_veiculos": 5,
+        "total_pedidos": 30
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.1426909153213915,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 32.96367830878165,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 11.923368787183087,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 30,
+            "atendidos": 29,
+            "rejeitados": 0,
+            "pendentes": 1,
+            "taxa_atendimento": 96.66666666666667
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 71.60886318270356,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 116.97523703859909,
+          "km_sem_passageiros": 71.60886318270356,
+          "km_totais": 188.58410022130266,
+          "percentagem_vazios": 37.97184550482827
+        },
+        "eficiencia_por_veiculo": {
+          "EV001": {
+            "pedidos_atendidos": 4,
+            "km_totais": 29.362382385504418,
+            "km_vazios": 11.87048159266775,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8808714715651322,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV002": {
+            "pedidos_atendidos": 8,
+            "km_totais": 36.56597964254816,
+            "km_vazios": 17.286620241456426,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.5484896946382224,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV003": {
+            "pedidos_atendidos": 6,
+            "km_totais": 43.166612945362814,
+            "km_vazios": 17.460303485425083,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8633322589072563,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "CV001": {
+            "pedidos_atendidos": 6,
+            "km_totais": 42.0347815575831,
+            "km_vazios": 13.561471194917294,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.7514492315659622,
+            "emissoes": 6.305217233637465,
+            "num_recargas": 0
+          },
+          "CV002": {
+            "pedidos_atendidos": 5,
+            "km_totais": 37.45434369030415,
+            "km_vazios": 11.429986668237005,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.8727171845152075,
+            "emissoes": 5.618151553545622,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimento": "Baixa Demanda",
+    "estrategia": "balanced",
+    "num_pedidos": 10,
+    "tempo_total": 60.0,
+    "timestamp": "2026-01-10T14:05:03.186776",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 60.0,
+        "inicio": "2026-01-10 14:05:03.186559",
+        "fim": "2026-01-10 14:05:03.186762",
+        "num_veiculos": 5,
+        "total_pedidos": 10
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.0,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 13.14582922029821,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 4.036667332514198,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 10,
+            "atendidos": 10,
+            "rejeitados": 0,
+            "pendentes": 0,
+            "taxa_atendimento": 100.0
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 43.62365483826609,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 36.7712134849498,
+          "km_sem_passageiros": 43.62365483826609,
+          "km_totais": 80.39486832321589,
+          "percentagem_vazios": 54.261740516675175
+        },
+        "eficiencia_por_veiculo": {
+          "EV001": {
+            "pedidos_atendidos": 2,
+            "km_totais": 18.727922061357855,
+            "km_vazios": 6.0,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.1236753236814714,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV002": {
+            "pedidos_atendidos": 3,
+            "km_totais": 19.807223446092152,
+            "km_vazios": 10.23606797749979,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.792288937843686,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV003": {
+            "pedidos_atendidos": 3,
+            "km_totais": 14.948607265671225,
+            "km_vazios": 9.476471310671645,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.597944290626849,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "CV001": {
+            "pedidos_atendidos": 1,
+            "km_totais": 9.06225774829855,
+            "km_vazios": 8.06225774829855,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 2.2655644370746373,
+            "emissoes": 1.3593386622447823,
+            "num_recargas": 0
+          },
+          "CV002": {
+            "pedidos_atendidos": 1,
+            "km_totais": 17.848857801796104,
+            "km_vazios": 9.848857801796104,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 4.462214450449026,
+            "emissoes": 2.6773286702694157,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimento": "Demanda Média",
+    "estrategia": "balanced",
+    "num_pedidos": 30,
+    "tempo_total": 180.0,
+    "timestamp": "2026-01-10T14:05:03.187653",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 180.0,
+        "inicio": "2026-01-10 14:05:03.187014",
+        "fim": "2026-01-10 14:05:03.187633",
+        "num_veiculos": 5,
+        "total_pedidos": 30
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.1426909153213915,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 32.96367830878165,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 11.923368787183087,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 30,
+            "atendidos": 29,
+            "rejeitados": 0,
+            "pendentes": 1,
+            "taxa_atendimento": 96.66666666666667
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 71.60886318270356,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 116.97523703859909,
+          "km_sem_passageiros": 71.60886318270356,
+          "km_totais": 188.58410022130266,
+          "percentagem_vazios": 37.97184550482827
+        },
+        "eficiencia_por_veiculo": {
+          "EV001": {
+            "pedidos_atendidos": 4,
+            "km_totais": 29.362382385504418,
+            "km_vazios": 11.87048159266775,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8808714715651322,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV002": {
+            "pedidos_atendidos": 8,
+            "km_totais": 36.56597964254816,
+            "km_vazios": 17.286620241456426,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.5484896946382224,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV003": {
+            "pedidos_atendidos": 6,
+            "km_totais": 43.166612945362814,
+            "km_vazios": 17.460303485425083,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8633322589072563,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "CV001": {
+            "pedidos_atendidos": 6,
+            "km_totais": 42.0347815575831,
+            "km_vazios": 13.561471194917294,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.7514492315659622,
+            "emissoes": 6.305217233637465,
+            "num_recargas": 0
+          },
+          "CV002": {
+            "pedidos_atendidos": 5,
+            "km_totais": 37.45434369030415,
+            "km_vazios": 11.429986668237005,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.8727171845152075,
+            "emissoes": 5.618151553545622,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimento": "Alta Demanda",
+    "estrategia": "balanced",
+    "num_pedidos": 50,
+    "tempo_total": 300.0,
+    "timestamp": "2026-01-10T14:05:03.189114",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 300.0,
+        "inicio": "2026-01-10 14:05:03.188039",
+        "fim": "2026-01-10 14:05:03.189093",
+        "num_veiculos": 5,
+        "total_pedidos": 50
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.000267282692793835,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 48.89812419499159,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 12.92782829818368,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 50,
+            "atendidos": 49,
+            "rejeitados": 0,
+            "pendentes": 1,
+            "taxa_atendimento": 98.0
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 133.35733346872578,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 180.75938600265533,
+          "km_sem_passageiros": 133.35733346872578,
+          "km_totais": 314.1167194713811,
+          "percentagem_vazios": 42.45470718437064
+        },
+        "eficiencia_por_veiculo": {
+          "EV001": {
+            "pedidos_atendidos": 13,
+            "km_totais": 69.1363359623335,
+            "km_vazios": 31.714794228532227,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.6381815627292323,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV002": {
+            "pedidos_atendidos": 10,
+            "km_totais": 69.37555159605589,
+            "km_vazios": 31.577349217351383,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8325066191526705,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV003": {
+            "pedidos_atendidos": 13,
+            "km_totais": 89.41930992510058,
+            "km_vazios": 39.44113976589375,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.8254090146932361,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "CV001": {
+            "pedidos_atendidos": 7,
+            "km_totais": 46.92432431262496,
+            "km_vazios": 18.224050256948427,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.6758687254508913,
+            "emissoes": 7.038648646893743,
+            "num_recargas": 0
+          },
+          "CV002": {
+            "pedidos_atendidos": 6,
+            "km_totais": 39.26119767526624,
+            "km_vazios": 12.4,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.6358832364694262,
+            "emissoes": 5.889179651289936,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimento": "Frota: Só Elétricos",
+    "estrategia": "balanced",
+    "num_pedidos": 25,
+    "tempo_total": 150.0,
+    "timestamp": "2026-01-10T14:05:03.189850",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 150.0,
+        "inicio": "2026-01-10 14:05:03.189320",
+        "fim": "2026-01-10 14:05:03.189834",
+        "num_veiculos": 5,
+        "total_pedidos": 25
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.0,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 20.571497246118895,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 0.0,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 25,
+            "atendidos": 24,
+            "rejeitados": 0,
+            "pendentes": 1,
+            "taxa_atendimento": 96.0
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 67.07917851858168,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 104.34996519907578,
+          "km_sem_passageiros": 67.07917851858168,
+          "km_totais": 171.42914371765747,
+          "percentagem_vazios": 39.12939017478883
+        },
+        "eficiencia_por_veiculo": {
+          "EV001": {
+            "pedidos_atendidos": 5,
+            "km_totais": 43.35102147226853,
+            "km_vazios": 19.15298244508295,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.0404245153344442,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV002": {
+            "pedidos_atendidos": 6,
+            "km_totais": 36.873532838574874,
+            "km_vazios": 16.59524158061724,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.7374706567714974,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV003": {
+            "pedidos_atendidos": 7,
+            "km_totais": 41.094403399777114,
+            "km_vazios": 11.83397840021018,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.7044754868533218,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV004": {
+            "pedidos_atendidos": 4,
+            "km_totais": 39.03249877657339,
+            "km_vazios": 16.496976092671314,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.1709749632972017,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV005": {
+            "pedidos_atendidos": 2,
+            "km_totais": 11.07768723046357,
+            "km_vazios": 3.0,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.6646612338278142,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimento": "Frota: Só Combustão",
+    "estrategia": "balanced",
+    "num_pedidos": 25,
+    "tempo_total": 150.0,
+    "timestamp": "2026-01-10T14:05:03.190571",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 150.0,
+        "inicio": "2026-01-10 14:05:03.190046",
+        "fim": "2026-01-10 14:05:03.190557",
+        "num_veiculos": 5,
+        "total_pedidos": 25
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.0,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 42.85728592941437,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 25.71437155764862,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 25,
+            "atendidos": 24,
+            "rejeitados": 0,
+            "pendentes": 1,
+            "taxa_atendimento": 96.0
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 67.07917851858168,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 104.34996519907578,
+          "km_sem_passageiros": 67.07917851858168,
+          "km_totais": 171.42914371765747,
+          "percentagem_vazios": 39.12939017478883
+        },
+        "eficiencia_por_veiculo": {
+          "CV001": {
+            "pedidos_atendidos": 5,
+            "km_totais": 43.35102147226853,
+            "km_vazios": 19.15298244508295,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 2.167551073613426,
+            "emissoes": 6.502653220840277,
+            "num_recargas": 0
+          },
+          "CV002": {
+            "pedidos_atendidos": 6,
+            "km_totais": 36.873532838574874,
+            "km_vazios": 16.59524158061724,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.5363972016072862,
+            "emissoes": 5.53102992578623,
+            "num_recargas": 0
+          },
+          "CV003": {
+            "pedidos_atendidos": 7,
+            "km_totais": 41.094403399777114,
+            "km_vazios": 11.83397840021018,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.4676572642777541,
+            "emissoes": 6.164160509966567,
+            "num_recargas": 0
+          },
+          "CV004": {
+            "pedidos_atendidos": 4,
+            "km_totais": 39.03249877657339,
+            "km_vazios": 16.496976092671314,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 2.439531173535837,
+            "emissoes": 5.854874816486008,
+            "num_recargas": 0
+          },
+          "CV005": {
+            "pedidos_atendidos": 2,
+            "km_totais": 11.07768723046357,
+            "km_vazios": 3.0,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.3847109038079461,
+            "emissoes": 1.6616530845695352,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "experimento": "Frota: Mista Equilibrada",
+    "estrategia": "balanced",
+    "num_pedidos": 25,
+    "tempo_total": 150.0,
+    "timestamp": "2026-01-10T14:05:03.191308",
+    "metricas": {
+      "resumo": {
+        "tempo_total_simulacao": 150.0,
+        "inicio": "2026-01-10 14:05:03.190781",
+        "fim": "2026-01-10 14:05:03.191293",
+        "num_veiculos": 5,
+        "total_pedidos": 25
+      },
+      "metricas_obrigatorias": {
+        "1_tempo_medio_resposta": {
+          "valor": 0.0,
+          "unidade": "minutos",
+          "descricao": "Tempo médio entre criação e atendimento do pedido"
+        },
+        "2_taxa_ocupacao_frota": {
+          "valor": 0.0,
+          "unidade": "%",
+          "descricao": "Percentagem do tempo que os veículos estão ocupados"
+        },
+        "3_custos_operacionais": {
+          "valor": 26.139621383948747,
+          "unidade": "€",
+          "descricao": "Custos operacionais totais da frota"
+        },
+        "4_emissoes_co2": {
+          "valor": 5.254186532938473,
+          "unidade": "kg CO2",
+          "descricao": "Emissões totais de CO2"
+        },
+        "5_pedidos_nao_atendidos": {
+          "valor": {
+            "total": 25,
+            "atendidos": 24,
+            "rejeitados": 0,
+            "pendentes": 1,
+            "taxa_atendimento": 96.0
+          },
+          "descricao": "Estatísticas de atendimento de pedidos"
+        },
+        "6_km_vazios": {
+          "valor": 75.53331026260813,
+          "unidade": "km",
+          "descricao": "Quilómetros percorridos sem passageiros"
+        }
+      },
+      "metricas_adicionais": {
+        "km_totais": {
+          "km_com_passageiros": 104.34996519907578,
+          "km_sem_passageiros": 75.53331026260813,
+          "km_totais": 179.88327546168392,
+          "percentagem_vazios": 41.9901795032063
+        },
+        "eficiencia_por_veiculo": {
+          "EV001": {
+            "pedidos_atendidos": 6,
+            "km_totais": 53.35969698516536,
+            "km_vazios": 22.75853372054694,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.067193939703307,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV002": {
+            "pedidos_atendidos": 7,
+            "km_totais": 52.392101668489865,
+            "km_vazios": 22.349878388032025,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 0.898150314316969,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "EV003": {
+            "pedidos_atendidos": 4,
+            "km_totais": 39.103566588438866,
+            "km_vazios": 16.56804390453679,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.1731069976531658,
+            "emissoes": 0.0,
+            "num_recargas": 0
+          },
+          "CV001": {
+            "pedidos_atendidos": 5,
+            "km_totais": 24.31970628709045,
+            "km_vazios": 9.856854249492379,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.2159853143545225,
+            "emissoes": 3.6479559430635677,
+            "num_recargas": 0
+          },
+          "CV002": {
+            "pedidos_atendidos": 2,
+            "km_totais": 10.70820393249937,
+            "km_vazios": 4.0,
+            "taxa_ocupacao": 0.0,
+            "custo_por_pedido": 1.3385254915624212,
+            "emissoes": 1.6062305898749054,
+            "num_recargas": 0
+          }
+        }
+      }
+    }
+  }
+]

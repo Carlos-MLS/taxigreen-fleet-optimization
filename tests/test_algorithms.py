@@ -96,7 +96,7 @@ def testar_bfs():
     assert resultado.path[0].state == 'A', "Deve começar em A"
     assert resultado.path[-1].state == 'I', "Deve terminar em I"
     
-    print("✓ BFS passou em todos os testes")
+    print("BFS passou em todos os testes")
 
 
 def testar_dfs():
@@ -118,7 +118,7 @@ def testar_dfs():
     assert resultado.path[0].state == 'A', "Deve começar em A"
     assert resultado.path[-1].state == 'I', "Deve terminar em I"
     
-    print("✓ DFS passou em todos os testes")
+    print("DFS passou em todos os testes")
 
 
 def testar_ucs():
@@ -140,7 +140,7 @@ def testar_ucs():
     assert resultado.path[0].state == 'A', "Deve começar em A"
     assert resultado.path[-1].state == 'I', "Deve terminar em I"
     
-    print("✓ UCS passou em todos os testes")
+    print("UCS passou em todos os testes")
 
 
 def testar_a_star():
@@ -166,7 +166,7 @@ def testar_a_star():
     assert resultado.path[0].state == 'A', "Deve começar em A"
     assert resultado.path[-1].state == 'I', "Deve terminar em I"
     
-    print("✓ A* passou em todos os testes")
+    print("A* passou em todos os testes")
 
 
 def testar_greedy():
@@ -191,7 +191,7 @@ def testar_greedy():
     assert resultado.path[0].state == 'A', "Deve começar em A"
     assert resultado.path[-1].state == 'I', "Deve terminar em I"
     
-    print("✓ Greedy passou em todos os testes")
+    print("Greedy passou em todos os testes")
 
 
 def comparar_algoritmos():
@@ -264,7 +264,7 @@ def testar_caminho_bloqueado():
         (caminho_estados.index('A') + 1 != caminho_estados.index('E') if 'E' in caminho_estados else True)
     ), "Não deve usar aresta bloqueada A-E"
     
-    print("✓ Teste de bloqueio passou")
+    print("[OK] Teste de bloqueio passou")
 
 
 def main():
@@ -283,14 +283,14 @@ def main():
         testar_caminho_bloqueado()
         
         print("\n" + "=" * 70)
-        print(" ✓ TODOS OS TESTES PASSARAM ".center(70, '='))
+        print(" [OK] TODOS OS TESTES PASSARAM ".center(70, '='))
         print("=" * 70)
         
     except AssertionError as e:
-        print(f"\n✗ TESTE FALHOU: {e}")
+        print(f"\n[FALHA] TESTE FALHOU: {e}")
         return 1
     except Exception as e:
-        print(f"\n✗ ERRO: {e}")
+        print(f"\n[ERRO]: {e}")
         import traceback
         traceback.print_exc()
         return 1

@@ -12,13 +12,13 @@ from src.models.city import City
 
 
 def main():
-    """Demonstração simples."""
+    """Demonstracao simples."""
     print("\n" + "=" * 70)
-    print(" DEMONSTRAÇÃO SISTEMA TAXIGREEN ".center(70, '='))
+    print(" DEMONSTRACAO SISTEMA TAXIGREEN ".center(70, '='))
     print("=" * 70)
     
     # Criar cidade
-    print("\n1️⃣  Criando cidade...")
+    print("\n[1] Criando cidade...")
     cidade = City()
     cidade.coordenadas = {
         'Centro': (0, 0),
@@ -27,10 +27,10 @@ def main():
     }
     cidade.adicionar_aresta('Centro', 'Norte', 5.0, 10.0)
     cidade.adicionar_aresta('Centro', 'Sul', 5.0, 10.0)
-    print(f"   ✅ Cidade com {len(cidade.nodes)} nós criada")
+    print(f"   Cidade com {len(cidade.nodes)} nos criada")
     
     # Criar frota
-    print("\n2️⃣  Criando frota...")
+    print("\n[2] Criando frota...")
     frota = [
         Vehicle(
             vehicle_id="EV001",
@@ -49,10 +49,10 @@ def main():
             localizacao="Norte"
         )
     ]
-    print(f"   ✅ Frota com {len(frota)} veículos criada")
+    print(f"   Frota com {len(frota)} veiculos criada")
     
     # Criar pedido
-    print("\n3️⃣  Criando pedido...")
+    print("\n[3] Criando pedido...")
     pedido = Request(
         request_id="REQ001",
         origem="Centro",
@@ -61,18 +61,18 @@ def main():
         horario_pedido=0.0,
         prioridade=Priority.NORMAL
     )
-    print(f"   ✅ Pedido {pedido.id}: {pedido.origem} → {pedido.destino}")
+    print(f"   Pedido {pedido.id}: {pedido.origem} -> {pedido.destino}")
     
     # Mostrar estado
-    print("\n4️⃣  Estado atual:")
+    print("\n[4] Estado atual:")
     for veiculo in frota:
-        print(f"   🚗 {veiculo.id} ({veiculo.tipo.value})")
-        print(f"      Localização: {veiculo.localizacao}")
+        print(f"   {veiculo.id} ({veiculo.tipo.value})")
+        print(f"      Localizacao: {veiculo.localizacao}")
         print(f"      Autonomia: {veiculo.autonomia_atual:.1f}/{veiculo.autonomia_maxima:.1f} km")
         print(f"      Estado: {veiculo.estado.value}")
     
     print("\n" + "=" * 70)
-    print(" ✅ DEMONSTRAÇÃO COMPLETA ".center(70, '='))
+    print(" DEMONSTRACAO COMPLETA ".center(70, '='))
     print("=" * 70 + "\n")
     
     return 0

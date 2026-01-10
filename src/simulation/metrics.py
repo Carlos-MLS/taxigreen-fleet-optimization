@@ -366,35 +366,35 @@ class MetricsCollector:
         relatorio = self.gerar_relatorio_completo()
         
         print("\n" + "=" * 70)
-        print(" RELATÓRIO DE MÉTRICAS - TAXIGREEN ".center(70, '='))
+        print(" RELATORIO DE METRICAS - TAXIGREEN ".center(70, '='))
         print("=" * 70)
         
-        print(f"\n⏱️  Tempo Total de Simulação: {self.tempo_total_simulacao:.1f} minutos")
-        print(f"🚗 Veículos na Frota: {len(self.veiculos)}")
-        print(f"📋 Total de Pedidos: {self.total_pedidos}")
+        print(f"\n    Tempo Total de Simulacao: {self.tempo_total_simulacao:.1f} minutos")
+        print(f"    Veiculos na Frota: {len(self.veiculos)}")
+        print(f"    Total de Pedidos: {self.total_pedidos}")
         
         print("\n" + "-" * 70)
-        print(" MÉTRICAS OBRIGATÓRIAS ".center(70))
+        print(" METRICAS OBRIGATORIAS ".center(70))
         print("-" * 70)
         
         metricas = relatorio['metricas_obrigatorias']
         
-        print(f"\n1️⃣  Tempo Médio de Resposta: {metricas['1_tempo_medio_resposta']['valor']:.2f} {metricas['1_tempo_medio_resposta']['unidade']}")
-        print(f"2️⃣  Taxa de Ocupação da Frota: {metricas['2_taxa_ocupacao_frota']['valor']:.2f} {metricas['2_taxa_ocupacao_frota']['unidade']}")
-        print(f"3️⃣  Custos Operacionais: {metricas['3_custos_operacionais']['valor']:.2f} {metricas['3_custos_operacionais']['unidade']}")
-        print(f"4️⃣  Emissões CO2: {metricas['4_emissoes_co2']['valor']:.2f} {metricas['4_emissoes_co2']['unidade']}")
+        print(f"\n[1] Tempo Medio de Resposta: {metricas['1_tempo_medio_resposta']['valor']:.2f} {metricas['1_tempo_medio_resposta']['unidade']}")
+        print(f"[2] Taxa de Ocupacao da Frota: {metricas['2_taxa_ocupacao_frota']['valor']:.2f} {metricas['2_taxa_ocupacao_frota']['unidade']}")
+        print(f"[3] Custos Operacionais: {metricas['3_custos_operacionais']['valor']:.2f} {metricas['3_custos_operacionais']['unidade']}")
+        print(f"[4] Emissoes CO2: {metricas['4_emissoes_co2']['valor']:.2f} {metricas['4_emissoes_co2']['unidade']}")
         
         pedidos = metricas['5_pedidos_nao_atendidos']['valor']
-        print(f"\n5️⃣  Status dos Pedidos:")
-        print(f"    ✅ Atendidos: {pedidos['atendidos']} ({pedidos['taxa_atendimento']:.1f}%)")
-        print(f"    ❌ Rejeitados: {pedidos['rejeitados']}")
-        print(f"    ⏳ Pendentes: {pedidos['pendentes']}")
+        print(f"\n[5] Status dos Pedidos:")
+        print(f"    - Atendidos: {pedidos['atendidos']} ({pedidos['taxa_atendimento']:.1f}%)")
+        print(f"    - Rejeitados: {pedidos['rejeitados']}")
+        print(f"    - Pendentes: {pedidos['pendentes']}")
         
-        print(f"\n6️⃣  Km Vazios: {metricas['6_km_vazios']['valor']:.2f} km")
+        print(f"\n[6] Km Vazios: {metricas['6_km_vazios']['valor']:.2f} km")
         
         km = relatorio['metricas_adicionais']['km_totais']
-        print(f"\n📊 Km Totais: {km['km_totais']:.2f} km")
-        print(f"    • Com passageiros: {km['km_com_passageiros']:.2f} km")
-        print(f"    • Sem passageiros: {km['km_sem_passageiros']:.2f} km ({km['percentagem_vazios']:.1f}%)")
+        print(f"\n    Km Totais: {km['km_totais']:.2f} km")
+        print(f"    - Com passageiros: {km['km_com_passageiros']:.2f} km")
+        print(f"    - Sem passageiros: {km['km_sem_passageiros']:.2f} km ({km['percentagem_vazios']:.1f}%)")
         
         print("\n" + "=" * 70 + "\n")

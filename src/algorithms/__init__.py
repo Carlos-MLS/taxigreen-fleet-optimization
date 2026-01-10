@@ -1,6 +1,6 @@
 """
-Módulo de algoritmos de procura.
-Contém implementações de algoritmos informados e não-informados.
+Modulo de algoritmos de procura.
+Contem implementacoes de algoritmos informados e nao-informados.
 """
 
 from .uninformed import (
@@ -11,22 +11,15 @@ from .uninformed import (
 
 from .informed import (
     a_star_search,
-    greedy_best_first_search,
-    weighted_a_star
+    greedy_best_first_search
 )
 
 from .heuristics import (
-    heuristic_zero,
     heuristic_euclidean,
     heuristic_manhattan,
-    heuristic_chebyshev,
-    heuristic_haversine,
     heuristic_time_estimate,
     heuristic_composite,
-    heuristic_min_stations,
-    HeuristicFactory,
-    is_admissible,
-    is_consistent
+    HeuristicFactory
 )
 
 __all__ = [
@@ -38,18 +31,11 @@ __all__ = [
     # Informed search
     'a_star_search',
     'greedy_best_first_search',
-    'weighted_a_star',
     
     # Heuristics
-    'heuristic_zero',
     'heuristic_euclidean',
     'heuristic_manhattan',
-    'heuristic_chebyshev',
-    'heuristic_haversine',
     'heuristic_time_estimate',
     'heuristic_composite',
-    'heuristic_min_stations',
-    'HeuristicFactory',
-    'is_admissible',
-    'is_consistent'
+    'HeuristicFactory'
 ]

@@ -130,7 +130,7 @@ def teste_simulacao_basica():
     # Imprimir métricas
     simulador.imprimir_resumo()
     
-    print("\n✅ Teste de simulação básica completo\n")
+    print("\n[OK] Teste de simulacao basica completo\n")
 
 
 def teste_comparacao_estrategias():
@@ -143,7 +143,7 @@ def teste_comparacao_estrategias():
     resultados = {}
     
     for nome_estrategia in estrategias:
-        print(f"\n🔍 Testando estratégia: {nome_estrategia}")
+        print(f"\n    Testando estrategia: {nome_estrategia}")
         print("-" * 70)
         
         cidade = criar_cidade_exemplo()
@@ -198,21 +198,21 @@ def teste_comparacao_estrategias():
               f"{metricas['km_vazios']:<10.2f}")
     
     # Determinar melhor em cada categoria
-    print("\n🏆 MELHORES POR CATEGORIA:")
+    print("\nMELHORES POR CATEGORIA:")
     
     melhor_tempo = min(resultados.items(), key=lambda x: x[1]['tempo_resposta'])
-    print(f"  ⚡ Menor tempo de resposta: {melhor_tempo[0]} ({melhor_tempo[1]['tempo_resposta']:.2f} min)")
+    print(f"  - Menor tempo de resposta: {melhor_tempo[0]} ({melhor_tempo[1]['tempo_resposta']:.2f} min)")
     
     melhor_ocupacao = max(resultados.items(), key=lambda x: x[1]['ocupacao'])
-    print(f"  🚗 Maior ocupação: {melhor_ocupacao[0]} ({melhor_ocupacao[1]['ocupacao']:.1f}%)")
+    print(f"  - Maior ocupacao: {melhor_ocupacao[0]} ({melhor_ocupacao[1]['ocupacao']:.1f}%)")
     
     melhor_custo = min(resultados.items(), key=lambda x: x[1]['custo'])
-    print(f"  💰 Menor custo: {melhor_custo[0]} (€{melhor_custo[1]['custo']:.2f})")
+    print(f"  - Menor custo: {melhor_custo[0]} ({melhor_custo[1]['custo']:.2f} EUR)")
     
     melhor_emissoes = min(resultados.items(), key=lambda x: x[1]['emissoes'])
-    print(f"  🌱 Menores emissões: {melhor_emissoes[0]} ({melhor_emissoes[1]['emissoes']:.2f} kg CO2)")
+    print(f"  - Menores emissoes: {melhor_emissoes[0]} ({melhor_emissoes[1]['emissoes']:.2f} kg CO2)")
     
-    print("\n✅ Teste de comparação de estratégias completo\n")
+    print("\n[OK] Teste de comparacao de estrategias completo\n")
 
 
 def teste_cenario_alta_demanda():
@@ -238,12 +238,12 @@ def teste_cenario_alta_demanda():
         distribuicao='poisson'
     )
     
-    print(f"\n📊 Cenário: 25 pedidos, 4 veículos, 180 minutos")
+    print(f"\n    Cenario: 25 pedidos, 4 veiculos, 180 minutos")
     
     simulador.executar(tempo_total=180.0, verbose=False)
     simulador.imprimir_resumo()
     
-    print("\n✅ Teste de alta demanda completo\n")
+    print("\n[OK] Teste de alta demanda completo\n")
 
 
 def teste_cenario_baixa_autonomia():
@@ -291,12 +291,12 @@ def teste_cenario_baixa_autonomia():
         distribuicao='uniforme'
     )
     
-    print(f"\n📊 Cenário: Veículos com autonomia inicial baixa")
+    print(f"\n    Cenario: Veiculos com autonomia inicial baixa")
     
     simulador.executar(tempo_total=120.0, verbose=True)
     simulador.imprimir_resumo()
     
-    print("\n✅ Teste de baixa autonomia completo\n")
+    print("\n[OK] Teste de baixa autonomia completo\n")
 
 
 def main():
@@ -319,13 +319,13 @@ def main():
         teste_cenario_baixa_autonomia()
         
         print("\n" + "=" * 70)
-        print(" ✅ TODOS OS TESTES DE INTEGRAÇÃO PASSARAM ".center(70, '='))
+        print(" [OK] TODOS OS TESTES DE INTEGRACAO PASSARAM ".center(70, '='))
         print("=" * 70 + "\n")
         
         return 0
         
     except Exception as e:
-        print(f"\n❌ ERRO NOS TESTES: {e}")
+        print(f"\n[ERRO] Erro nos testes: {e}")
         import traceback
         traceback.print_exc()
         return 1

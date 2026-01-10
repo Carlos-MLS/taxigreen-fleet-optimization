@@ -131,11 +131,11 @@ def executar_experimento(
     m_obrig = relatorio['metricas_obrigatorias']
     m_naoa = m_obrig['5_pedidos_nao_atendidos']['valor']
     
-    print("\n📊 RESUMO:")
-    print(f"  Tempo Médio Resposta: {m_obrig['1_tempo_medio_resposta']['valor']:.2f} min")
-    print(f"  Taxa Ocupação: {m_obrig['2_taxa_ocupacao_frota']['valor']:.2f}%")
-    print(f"  Custos: {m_obrig['3_custos_operacionais']['valor']:.2f} €")
-    print(f"  Emissões: {m_obrig['4_emissoes_co2']['valor']:.2f} kg CO2")
+    print("\nRESUMO:")
+    print(f"  Tempo Medio Resposta: {m_obrig['1_tempo_medio_resposta']['valor']:.2f} min")
+    print(f"  Taxa Ocupacao: {m_obrig['2_taxa_ocupacao_frota']['valor']:.2f}%")
+    print(f"  Custos: {m_obrig['3_custos_operacionais']['valor']:.2f} EUR")
+    print(f"  Emissoes: {m_obrig['4_emissoes_co2']['valor']:.2f} kg CO2")
     print(f"  Atendidos: {m_naoa['atendidos']}/{m_naoa['total']}")
     print(f"  Km Vazios: {m_obrig['6_km_vazios']['valor']:.2f} km")
     
@@ -249,10 +249,10 @@ def main():
         json.dump(resultados, f, indent=2, ensure_ascii=False)
     
     print(f"\n\n{'='*70}")
-    print(f"✅ RESULTADOS EXPORTADOS")
+    print("RESULTADOS EXPORTADOS")
     print(f"{'='*70}")
-    print(f"📄 Arquivo JSON: {json_file}")
-    print(f"📊 Total de experimentos: {len(resultados)}")
+    print(f"Arquivo JSON: {json_file}")
+    print(f"Total de experimentos: {len(resultados)}")
     
     # Criar tabela comparativa simples
     print(f"\n\n{'='*70}")
@@ -278,4 +278,4 @@ def main():
 
 if __name__ == "__main__":
     resultados = main()
-    print("\n🎉 Geração de resultados completa!\n")
+    print("\nGeracao de resultados completa.\n")

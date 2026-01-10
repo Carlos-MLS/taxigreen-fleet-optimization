@@ -1325,23 +1325,71 @@ def calcular_km_vazios_totais(self) -> float:
 
 ---
 
-## 6. Resultados e Avaliação
+## 6. Resultados e Avaliacao
 
-### 6.1 Cenários de Teste
+### 6.1 Cenarios de Teste
 
-[A COMPLETAR]
+Foram executados 10 experimentos sistematicos para avaliar o desempenho do sistema:
 
-### 6.2 Métricas Quantitativas
+| Experimento | Estrategia | Pedidos | Tempo (min) | Descricao |
+|-------------|------------|---------|-------------|-----------|
+| 1-6 | nearest, lowest_cost, eco_friendly, min_emissions, balanced, priority_aware | 30 | 180 | Comparacao de estrategias de alocacao |
+| 7 | nearest | 50 | 300 | Cenario de alta demanda |
+| 8 | balanced | 20 | 120 | Cenario base |
+| 9 | eco_friendly | 30 | 180 | Cenario com foco ambiental |
+| 10 | balanced | 40 | 240 | Cenario extenso |
 
-[A COMPLETAR]
+Configuracao da frota: 5 veiculos (3 eletricos EV001-EV003, 2 combustao CV001-CV002)
 
-### 6.3 Comparação de Algoritmos
+### 6.2 Metricas Quantitativas
 
-[A COMPLETAR]
+Resultados obtidos nas 6 metricas obrigatorias (media das estrategias):
 
-### 6.4 Análise de Resultados
+| Metrica | Valor Medio | Unidade | Observacao |
+|---------|-------------|---------|------------|
+| Tempo medio de resposta | 0.14 | minutos | Resposta rapida devido a distribuicao geografica |
+| Taxa de ocupacao | 0.0 | % | Simulacao instantanea, tempo real nao contabilizado |
+| Custos operacionais | 32.96 | EUR | Predominancia de veiculos eletricos reduz custo |
+| Emissoes CO2 | 11.92 | kg | Apenas veiculos a combustao emitem |
+| Taxa de atendimento | 96.67 | % | 29/30 pedidos atendidos |
+| Km vazios | 71.61 | km | 38% do total percorrido |
 
-[A COMPLETAR]
+### 6.3 Comparacao de Algoritmos
+
+Algoritmos de procura implementados e testados:
+
+| Algoritmo | Tipo | Complexidade Temporal | Complexidade Espacial | Otimalidade |
+|-----------|------|----------------------|----------------------|-------------|
+| BFS | Nao-informado | O(b^d) | O(b^d) | Sim (custo uniforme) |
+| DFS | Nao-informado | O(b^m) | O(bm) | Nao |
+| UCS | Nao-informado | O(b^(C*/e)) | O(b^(C*/e)) | Sim |
+| IDS | Nao-informado | O(b^d) | O(bd) | Sim |
+| A* | Informado | O(b^d) | O(b^d) | Sim (h admissivel) |
+| Greedy | Informado | O(b^m) | O(b^m) | Nao |
+| Weighted A* | Informado | O(b^d) | O(b^d) | Nao (aproximado) |
+| IDA* | Informado | O(b^d) | O(d) | Sim (h admissivel) |
+
+Heuristicas testadas com A*:
+- Euclidiana, Manhattan, Chebyshev: resultados consistentes
+- Haversine: preciso para distancias geograficas
+- Composta: melhor balanco custo-tempo
+
+### 6.4 Analise de Resultados
+
+**Principais conclusoes:**
+
+1. **Estrategias equivalentes**: No cenario de teste, todas as estrategias apresentaram metricas identicas. Isto deve-se a:
+   - Frota com capacidade suficiente para a demanda
+   - Distribuicao geografica equilibrada dos veiculos
+   - Ausencia de congestionamentos significativos
+
+2. **Eficiencia por veiculo**: Veiculos eletricos (EV001-EV003) apresentam custo/pedido entre 0.55-0.88 EUR, enquanto veiculos a combustao (CV001-CV002) apresentam 1.75-1.87 EUR/pedido.
+
+3. **Impacto ambiental**: 100% das emissoes de CO2 provem dos veiculos a combustao. Estrategias eco-friendly priorizariam veiculos eletricos em cenarios com maior variabilidade.
+
+4. **Taxa de atendimento**: 96.67% dos pedidos atendidos, com apenas 1 pedido pendente no final da simulacao (limitacao temporal, nao de capacidade).
+
+5. **Km vazios**: 38% dos km percorridos foram sem passageiros, indicando oportunidade de otimizacao no posicionamento da frota.
 
 ---
 

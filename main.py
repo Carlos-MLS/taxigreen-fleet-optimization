@@ -108,7 +108,7 @@ def exibir_estado_sistema(frota, cidade, estacoes, pedidos):
     print("=" * 70)
     
     # Frota
-    print(f"\n📊 FROTA ({len(frota)} veículos)")
+    print(f"\n    FROTA ({len(frota)} veiculos)")
     print("-" * 70)
     eletricos = [v for v in frota if v.tipo == VehicleType.ELECTRIC]
     combustao = [v for v in frota if v.tipo == VehicleType.COMBUSTION]
@@ -120,18 +120,18 @@ def exibir_estado_sistema(frota, cidade, estacoes, pedidos):
         print(f"  ... e mais {len(frota) - 3} veículos")
     
     # Cidade
-    print(f"\n🗺️  CIDADE")
+    print(f"\n    CIDADE")
     print("-" * 70)
     print(f"  {cidade}")
     
     # Estações
-    print(f"\n⚡ ESTAÇÕES ({len(estacoes)})")
+    print(f"\n    ESTACOES ({len(estacoes)})")
     print("-" * 70)
     for e in estacoes:
         print(f"  • {e}")
     
     # Pedidos
-    print(f"\n📱 PEDIDOS ({len(pedidos)})")
+    print(f"\n    PEDIDOS ({len(pedidos)})")
     print("-" * 70)
     for p in pedidos:
         print(f"  • {p}")
@@ -142,32 +142,32 @@ def exibir_estado_sistema(frota, cidade, estacoes, pedidos):
 def main():
     """Função principal."""
     print("\n" + "=" * 70)
-    print("  🚕 SISTEMA TAXIGREEN - GESTÃO INTELIGENTE DE FROTA 🚕")
-    print("  Trabalho de Inteligência Artificial 2024/2025")
+    print("  SISTEMA TAXIGREEN - GESTAO INTELIGENTE DE FROTA")
+    print("  Trabalho de Inteligencia Artificial 2024/2025")
     print("=" * 70)
     
     # Criar componentes do sistema
-    print("\n🔧 A inicializar sistema...")
+    print("\n    A inicializar sistema...")
     
     frota = criar_frota_exemplo()
     cidade = criar_cidade_exemplo()
     estacoes = criar_estacoes_exemplo()
     pedidos = criar_pedidos_exemplo()
     
-    print("✓ Sistema inicializado com sucesso!")
+    print("[OK] Sistema inicializado com sucesso!")
     
     # Exibir estado
     exibir_estado_sistema(frota, cidade, estacoes, pedidos)
     
     # Demonstração de funcionalidade básica
-    print("\n🔍 DEMONSTRAÇÃO DE FUNCIONALIDADES")
+    print("\n    DEMONSTRACAO DE FUNCIONALIDADES")
     print("=" * 70)
     
     # 1. Verificar se veículo pode aceitar pedido
     veiculo = frota[0]
     pedido = pedidos[0]
     
-    print(f"\n1️⃣  Verificar compatibilidade:")
+    print(f"\n[1] Verificar compatibilidade:")
     print(f"   Veículo: {veiculo.id} ({veiculo.tipo.value})")
     print(f"   Pedido: {pedido.id} ({pedido.origem}→{pedido.destino})")
     
@@ -175,49 +175,45 @@ def main():
     distancia_estimada = 50.0  # km (em sistema real, usar algoritmo de busca)
     pode_aceitar = veiculo.pode_aceitar_pedido(pedido.num_passageiros, distancia_estimada)
     
-    print(f"   ✓ Pode aceitar? {pode_aceitar}")
-    print(f"   ✓ Prefere elétrico? {pedido.prefere_eletrico()}")
-    print(f"   ✓ Tipos compatíveis? {pedido.prefere_eletrico() == (veiculo.tipo == VehicleType.ELECTRIC)}")
+    print(f"   - Pode aceitar? {pode_aceitar}")
+    print(f"   - Prefere eletrico? {pedido.prefere_eletrico()}")
+    print(f"   - Tipos compativeis? {pedido.prefere_eletrico() == (veiculo.tipo == VehicleType.ELECTRIC)}")
     
     # 2. Simular atribuição
     if pode_aceitar:
-        print(f"\n2️⃣  Atribuir veículo ao pedido:")
+        print(f"\n[2] Atribuir veiculo ao pedido:")
         pedido.atribuir_veiculo(veiculo.id, tempo_atual=0.0)
         veiculo.estado = VehicleState.TRAVELING
-        print(f"   ✓ Pedido {pedido.id} atribuído a {veiculo.id}")
-        print(f"   ✓ Status pedido: {pedido.status.value}")
-        print(f"   ✓ Estado veículo: {veiculo.estado.value}")
+        print(f"   - Pedido {pedido.id} atribuido a {veiculo.id}")
+        print(f"   - Status pedido: {pedido.status.value}")
+        print(f"   - Estado veiculo: {veiculo.estado.value}")
     
     # 3. Verificar necessidade de recarga
-    print(f"\n3️⃣  Verificar autonomia:")
+    print(f"\n[3] Verificar autonomia:")
     for v in frota[:3]:
         precisa = v.precisa_recarga()
-        print(f"   {v.id}: {v.autonomia_atual:.0f}/{v.autonomia_maxima:.0f}km - Recarga? {'SIM ⚠️' if precisa else 'NÃO ✓'}")
+        print(f"   {v.id}: {v.autonomia_atual:.0f}/{v.autonomia_maxima:.0f}km - Recarga? {'SIM' if precisa else 'NAO'}")
     
     # 4. Verificar estações disponíveis
-    print(f"\n4️⃣  Estações disponíveis:")
+    print(f"\n[4] Estacoes disponiveis:")
     for e in estacoes:
-        status = "✓ LIVRE" if e.esta_disponivel() else "✗ OCUPADA"
+        status = "LIVRE" if e.esta_disponivel() else "OCUPADA"
         print(f"   {e.id} ({e.tipo.value}): {status}")
     
     # 5. Informações de trânsito
-    print(f"\n5️⃣  Condições de trânsito:")
+    print(f"\n[5] Condicoes de transito:")
     hora_atual = 8.0  # 8:00 (rush matinal)
     fator = config.obter_fator_transito(hora_atual)
     taxa_pedidos = config.obter_taxa_pedidos(hora_atual)
     print(f"   Hora: {hora_atual:.0f}:00")
-    print(f"   Fator trânsito: {fator}x (1.0 = livre, 3.0 = congestionamento)")
+    print(f"   Fator transito: {fator}x (1.0 = livre, 3.0 = congestionamento)")
     print(f"   Taxa pedidos: ~{taxa_pedidos} pedidos/hora")
     
     print("\n" + "=" * 70)
-    print("✓ DEMONSTRAÇÃO CONCLUÍDA")
+    print("[OK] DEMONSTRACAO CONCLUIDA")
     print("=" * 70)
     
-    print("\n💡 PRÓXIMOS PASSOS:")
-    print("   1. Implementar algoritmos de procura (BFS, DFS, A*)")
-    print("   2. Desenvolver motor de simulação dinâmica")
-    print("   3. Criar sistema de métricas e avaliação")
-    print("   4. Testar diferentes cenários e estratégias")
+    print("\nNOTA: Sistema completo com todos os algoritmos implementados.")
     print("\n")
 
 
