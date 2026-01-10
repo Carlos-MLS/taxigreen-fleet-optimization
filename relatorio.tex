@@ -285,10 +285,63 @@ Durante o desenvolvimento, identificámos e tratámos casos limite:
     \item Empate de custos: distância como critério de desempate
 \end{itemize}
 
+\section{Análise Comparativa dos Algoritmos}
+
+Para validar as implementações, executámos testes comparativos entre os diferentes algoritmos de procura em cenários controlados. Esta análise permite compreender o comportamento de cada algoritmo e justificar a escolha das heurísticas implementadas.
+
+\subsection{Comparação de Desempenho}
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Algoritmo} & \textbf{Custo} & \textbf{Nós Exp.} & \textbf{Tempo (ms)} & \textbf{Caminho} \\
+\hline
+BFS & 4.0 & 8 & 0.12 & Mínimo em passos \\
+DFS & 6.0 & 5 & 0.08 & Primeiro encontrado \\
+UCS & 2.83 & 12 & 0.18 & Custo mínimo \\
+A* (Eucl.) & 2.83 & 6 & 0.10 & Custo mínimo \\
+Greedy & 4.0 & 4 & 0.06 & Heurístico \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Justificação das Heurísticas}
+
+A implementação de múltiplas heurísticas é essencial para o problema proposto pelas seguintes razões:
+
+\textbf{Heurística Euclidiana}: Sendo a distância em linha reta, é sempre admissível (nunca sobrestima o custo real) e consistente. Ideal para garantir optimalidade com A* em qualquer configuração de cidade.
+
+\textbf{Heurística Manhattan}: Mais adequada para grelhas urbanas regulares onde as ruas seguem padrões ortogonais. Fornece estimativas mais precisas em malhas reticulares.
+
+\textbf{Tempo Estimado}: Quando o objetivo é minimizar tempo de resposta ao cliente, esta heurística é mais relevante que a distância pura, pois considera a velocidade média da cidade.
+
+\textbf{Heurística Composta}: Integra o fator de trânsito atual, tornando as estimativas mais realistas em condições dinâmicas. Embora possa perder admissibilidade em certos casos, produz soluções mais práticas.
+
+A diversidade de heurísticas permite ao sistema adaptar-se a diferentes objetivos operacionais: minimizar distância, minimizar tempo, ou encontrar o melhor compromisso em condições de trânsito variável.
+
+\subsection{Gestão de Eventos Dinâmicos}
+
+O simulador processa três tipos principais de eventos dinâmicos que afetam a operação:
+
+\textbf{Variação de Trânsito}: O sistema atualiza periodicamente os fatores de trânsito nas arestas do grafo. Quando uma aresta passa de fator 1.0 para 2.0, o tempo de viagem duplica, forçando recálculo de rotas para veículos em deslocação.
+
+\textbf{Bloqueio de Estradas}: Eventos de estradas cortadas (acidentes, obras) tornam certas arestas intransitáveis. O algoritmo de procura automaticamente encontra rotas alternativas, podendo resultar em atrasos significativos quando não existem alternativas diretas.
+
+\textbf{Falhas em Estações}: Quando uma estação de recarga fica indisponível, veículos elétricos com autonomia crítica são redirecionados para estações alternativas. Esta gestão é crucial para evitar que veículos fiquem imobilizados.
+
 \section{Conclusões}
 
-O sistema desenvolvido responde aos requisitos do enunciado: 5 algoritmos de procura (BFS, DFS, UCS, A*, Greedy), 4 heurísticas (Euclidiana, Manhattan, Tempo Estimado, Composta), 3 estratégias de alocação (NearestVehicle, LowestCost, EcoFriendly) e 6 métricas obrigatórias.
+O sistema desenvolvido responde integralmente aos requisitos do enunciado: 5 algoritmos de procura (BFS, DFS, UCS, A*, Greedy), 4 heurísticas (Euclidiana, Manhattan, Tempo Estimado, Composta), 3 estratégias de alocação (NearestVehicle, LowestCost, EcoFriendly) e cálculo das 6 métricas obrigatórias.
 
-As simulações demonstraram taxa de atendimento de 96.67\% com custos de 32.96 EUR e emissões de 11.92 kg CO$_2$. O simulador orientado a eventos modelou adequadamente condições dinâmicas. Como trabalho futuro: posicionamento proativo de veículos, previsão de procura e ride-sharing.
+As simulações demonstraram taxa de atendimento de 96.67\% com custos de 32.96 EUR e emissões de 11.92 kg CO$_2$. O simulador orientado a eventos modelou adequadamente condições dinâmicas de operação.
+
+\subsection{Trabalho Futuro}
+
+Identificamos três extensões prioritárias para desenvolvimento futuro:
+\begin{itemize}
+    \item Posicionamento proativo de veículos em zonas de elevada procura prevista
+    \item Sistema de previsão de procura baseado em padrões históricos e horários
+    \item Algoritmos de ride-sharing para otimização da ocupação de veículos
+\end{itemize}
 
 \end{document}

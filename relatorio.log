@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.12.12)  10 JAN 2026 15:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.12.12)  10 JAN 2026 22:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -489,7 +489,7 @@ LaTeX Info: Redefining \nameref on input line 34.
 \@outlinefile=\write3
 \openout3 = `relatorio.out'.
 
-<uminhoLogo.png, id=96, 602.25pt x 602.25pt>
+<uminhoLogo.png, id=116, 602.25pt x 602.25pt>
 File: uminhoLogo.png Graphic file (type png)
 <use uminhoLogo.png>
 Package pdftex.def Info: uminhoLogo.png  used on input line 40.
@@ -541,18 +541,24 @@ Overfull \hbox (1.9807pt too wide) in paragraph at lines 119--120
 ^^Pculo a pedido (pr^^Se-condi^^Xc~oes: dispon^^S^^Pvel, capacidade,
  []
 
-[4] [5] [6] [7] (./relatorio.aux)
+[4] [5] [6] [7]
+Overfull \hbox (0.77133pt too wide) in paragraph at lines 312--313
+[]\OT1/cmr/bx/n/10.95 Heur^^S^^Pstica Euclidiana\OT1/cmr/m/n/10.95 : Sendo a di
+st^ancia em linha reta, ^^Se sempre admiss^^S^^Pvel (nunca sobrestima
+ []
+
+[8] [9] (./relatorio.aux)
 Package rerunfilecheck Info: File `relatorio.out' has not changed.
-(rerunfilecheck)             Checksum: EC0704C08B2D9CD6311AD4AE3EA3FA72;4091.
+(rerunfilecheck)             Checksum: F5357E24CEF37DC873B593F095D81043;5073.
  ) 
 Here is how much of TeX's memory you used:
- 13240 strings out of 480247
- 204996 string characters out of 5896150
+ 13252 strings out of 480247
+ 205158 string characters out of 5896150
  711009 words of memory out of 5000000
- 30987 multiletter control sequences out of 15000+600000
+ 30992 multiletter control sequences out of 15000+600000
  475651 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,8n,63p,1198b,420s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,63p,1198b,432s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/francisco0504/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm
 1095.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -566,10 +572,10 @@ ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1
 c/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmtt10.pfb>
-Output written on relatorio.pdf (8 pages, 196481 bytes).
+Output written on relatorio.pdf (10 pages, 202163 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 190 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 269 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 230 words of extra memory for PDF output out of 10000 (max. 10000000)
 
