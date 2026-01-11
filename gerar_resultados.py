@@ -166,8 +166,8 @@ def main():
             cidade=cidade,
             frota=frota,
             estrategia=estrategia,
-            num_pedidos=30,
-            tempo_total=180.0,
+            num_pedidos=40,
+            tempo_total=120.0,
             seed=42
         )
         resultados.append(resultado)
@@ -176,9 +176,9 @@ def main():
     print("\n\n SÉRIE 2: DIFERENTES VOLUMES DE DEMANDA \n")
     
     volumes = [
-        (10, 60.0, "Baixa Demanda"),
-        (30, 180.0, "Demanda Média"),
-        (50, 300.0, "Alta Demanda")
+        (15, 60.0, "Baixa Demanda"),
+        (40, 120.0, "Demanda Média"),
+        (70, 180.0, "Alta Demanda")
     ]
     
     for num_pedidos, tempo, nome in volumes:
@@ -230,8 +230,8 @@ def main():
             cidade=cidade,
             frota=frota,
             estrategia='lowest_cost',
-            num_pedidos=25,
-            tempo_total=150.0,
+            num_pedidos=30,
+            tempo_total=120.0,
             seed=42
         )
         resultados.append(resultado)
@@ -254,17 +254,38 @@ def main():
     print(f"Arquivo JSON: {json_file}")
     print(f"Total de experimentos: {len(resultados)}")
     
-    # Criar tabela comparativa simples
+    # TABELA 1: Comparação de Estratégias (Série 1)
     print(f"\n\n{'='*70}")
-    print("TABELA COMPARATIVA - ESTRATÉGIAS")
+    print("TABELA 1: COMPARAÇÃO DE ESTRATÉGIAS DE ALOCAÇÃO")
+    print("(Frota mista: 60% elétricos, 40% combustão - 40 pedidos em 120min)")
     print(f"{'='*70}")
     print(f"{'Estratégia':<20} {'Resposta':<12} {'Ocupação':<10} {'Custos':<10} {'Emissões':<10} {'Atendidos':<10}")
     print("-"*70)
     
-    for r in resultados[:4]:  # Primeiros 4 (estratégias)
+    for r in resultados[:3]:  # Primeiros 3 (estratégias da Série 1)
         m = r['metricas']['metricas_obrigatorias']
         m_naoa = m['5_pedidos_nao_atendidos']['valor']
         print(f"{r['estrategia']:<20} "
+              f"{m['1_tempo_medio_resposta']['valor']:>8.2f}min "
+              f"{m['2_taxa_ocupacao_frota']['valor']:>8.2f}% "
+              f"{m['3_custos_operacionais']['valor']:>8.2f}€ "
+              f"{m['4_emissoes_co2']['valor']:>8.2f}kg "
+              f"{m_naoa['atendidos']:>3}/{m_naoa['total']:<3}")
+    
+    # TABELA 2: Comparação de Composições de Frota (Série 3)
+    print(f"\n\n{'='*70}")
+    print("TABELA 2: IMPACTO DA COMPOSIÇÃO DA FROTA")
+    print("(Estratégia lowest_cost - 30 pedidos em 120min)")
+    print(f"{'='*70}")
+    print(f"{'Composição':<20} {'Resposta':<12} {'Ocupação':<10} {'Custos':<10} {'Emissões':<10} {'Atendidos':<10}")
+    print("-"*70)
+    
+    # Resultados 6, 7, 8 são da Série 3 (composições de frota)
+    nomes_composicao = ['Só Elétricos', 'Só Combustão', 'Mista (50/50)']
+    for i, r in enumerate(resultados[6:9]):
+        m = r['metricas']['metricas_obrigatorias']
+        m_naoa = m['5_pedidos_nao_atendidos']['valor']
+        print(f"{nomes_composicao[i]:<20} "
               f"{m['1_tempo_medio_resposta']['valor']:>8.2f}min "
               f"{m['2_taxa_ocupacao_frota']['valor']:>8.2f}% "
               f"{m['3_custos_operacionais']['valor']:>8.2f}€ "

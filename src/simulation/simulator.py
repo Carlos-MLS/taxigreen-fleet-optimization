@@ -319,7 +319,8 @@ class TaxiSimulator:
             dados={
                 'veiculo_id': veiculo.id,
                 'pedido_id': pedido.id,
-                'distancia': dist_to_pickup
+                'distancia': dist_to_pickup,
+                'tempo_inicio': self.tempo_atual
             }
         )
         self._inserir_evento(evento_chegada)
@@ -329,6 +330,7 @@ class TaxiSimulator:
         veiculo_id = evento.dados['veiculo_id']
         pedido_id = evento.dados['pedido_id']
         dist_vazia = evento.dados['distancia']
+        tempo_inicio = evento.dados['tempo_inicio']
         
         veiculo = self.frota[veiculo_id]
         pedido = self.pedidos_em_servico[pedido_id]
@@ -352,7 +354,8 @@ class TaxiSimulator:
                 'veiculo_id': veiculo_id,
                 'pedido_id': pedido_id,
                 'distancia_vazia': dist_vazia,
-                'distancia_viagem': dist_trip
+                'distancia_viagem': dist_trip,
+                'tempo_inicio': tempo_inicio
             }
         )
         self._inserir_evento(evento_destino)
@@ -363,6 +366,7 @@ class TaxiSimulator:
         pedido_id = evento.dados['pedido_id']
         dist_vazia = evento.dados['distancia_vazia']
         dist_trip = evento.dados['distancia_viagem']
+        tempo_inicio = evento.dados['tempo_inicio']
         
         veiculo = self.frota[veiculo_id]
         pedido = self.pedidos_em_servico.pop(pedido_id)
@@ -374,6 +378,10 @@ class TaxiSimulator:
         veiculo.localizacao = pedido.destino
         veiculo.consumir_autonomia(dist_trip)
         veiculo.estado = VehicleState.AVAILABLE
+        
+        # Calcular tempo ocupado e registrar nas métricas
+        tempo_ocupado = self.tempo_atual - tempo_inicio
+        self.metricas.registrar_tempo_veiculo(veiculo_id, tempo_ocupado=tempo_ocupado)
         
         # Calcular custo e emissões
         dist_total = dist_vazia + dist_trip

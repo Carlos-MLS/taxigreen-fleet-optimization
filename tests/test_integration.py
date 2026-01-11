@@ -139,7 +139,7 @@ def teste_comparacao_estrategias():
     print(" TESTE: Comparação de Estratégias ".center(70, '='))
     print("=" * 70)
     
-    estrategias = ['nearest', 'lowest_cost', 'eco_friendly', 'balanced']
+    estrategias = ['nearest', 'lowest_cost', 'eco_friendly']
     resultados = {}
     
     for nome_estrategia in estrategias:
